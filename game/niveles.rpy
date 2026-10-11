@@ -120,17 +120,23 @@ label nivel_1:
 
     v "Ahora sí, podemos irnos."
 
+    show valeria_bebe normal:
+        linear 2.0 xalign 2.5 yalign -3.0
+
+    pause 1.2
 
     # 
     # ESCENA 4 - UNIVERSIDAD
     # 
 
     scene bg fondo_universidad
+    with fade
 
-    show valeria_bebe normal at center:
-        xalign 0.5
-        yalign -0.3
-    with dissolve
+    show valeria_bebe normal:
+        xalign -0.3 yalign -0.3
+        linear 1.2 xalign 0.5
+
+    pause 1.2
 
     v "Ya llegamos."
 
@@ -210,4 +216,84 @@ label nivel_1:
 
     pause 1.0
 
-    return
+    scene bg fondo_marco with fade
+
+    pause 0.5
+
+    call screen separador_nivel(
+        "01",
+        "Memorias del Pasado",
+        "El peso de la responzabilidad"
+    )
+
+    jump nivel_2
+
+label nivel_2:
+
+    "Algunas antiguas memorias regresan a la mente Valeria."
+
+    pause 1.0
+
+    scene bg fondo_universidad
+
+    show flashback_exnovio amor
+
+    "Antes de convertirse en madre, Valeria otros planes para su vida."
+
+    "Tenia aproximadamente veinte años y llevaba varios de ellos en una relacion."
+
+    "Su novio estudiaba medicina."
+
+    v "En ese momento pensaba que nuestro futuro seria estando juntos."
+
+    v "Eramos jovenes y teniamos muchos sueños"
+
+    scene black with dissolve
+
+    "Pero todo comenzo a cambiar cuando Valeria descubrio que estaba embarazada."
+
+    "Aquella noticia cambio sus planes y tambie su relacuion."
+
+    v "Estoy embarazada..."
+
+    v "Que se supone que haga ahora?..."
+
+    "Valeria estaba asustada, pero sabia que debia enfrentar lo que estaba sucediendo."
+
+    #
+    # Decicion 4
+    #
+
+    menu:
+
+        "¿Que decide hacer valeria ahora?"
+
+        "Continuar con sus estudios y enfrentar la situacion.":
+
+            $estudios += 1
+
+            v "Debo seguir estudiando"
+
+            v "No abandonare mis sueños asi sin más"
+
+            "Valeria decidio que aunque tendra nuevos retos, queria continuar con su carrear."
+
+        "Concentrarse primero en ser mamá.":
+
+            $cuidado_bebe += 1
+
+            v "Ahora necesito pensar en mi bebe."
+
+            v "Quiero prepararme para todo lo que viene."
+
+            "Valeria decidio concentrarse en su nueva responsabilidad."
+
+    "Pero la noticia del embarazo tambien cambniara la relacion de Valeria con su familia."
+
+    "Muy pronto tendra que regresar a casa de sus padres."
+
+    "Fin del capitulo 2."
+
+    pause 1.0
+
+    

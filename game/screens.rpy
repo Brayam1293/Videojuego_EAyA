@@ -288,53 +288,98 @@ style quick_button_text:
 ## ofrece navegación a los otros menús y al inicio del juego.
 
 screen navigation():
+    if renpy.get_screen("main_menu"):
 
-    vbox:
-        style_prefix "navigation"
+        hbox:
+            style_prefix "navigation"
 
-        xpos gui.navigation_xpos
-        yalign 0.5
+            xalign 0.5
+            yalign 0.9
 
-        spacing gui.navigation_spacing
+            spacing gui.navigation_spacing
 
-        if main_menu:
+            if main_menu:
 
-            textbutton _("Comenzar") action Start()
+                textbutton _("Comenzar") action Start()
 
-        else:
+            else:
 
-            textbutton _("Historial") action ShowMenu("history")
+                textbutton _("Historial") action ShowMenu("history")
 
-            textbutton _("Guardar") action ShowMenu("save")
+                textbutton _("Guardar") action ShowMenu("save")
 
-        textbutton _("Cargar") action ShowMenu("load")
+            textbutton _("Cargar") action ShowMenu("load")
 
-        textbutton _("Opciones") action ShowMenu("preferences")
+            textbutton _("Opciones") action ShowMenu("preferences")
 
-        if _in_replay:
+            if _in_replay:
 
-            textbutton _("Finaliza repetición") action EndReplay(confirm=True)
+                textbutton _("Finaliza repetición") action EndReplay(confirm=True)
 
-        elif not main_menu:
+            elif not main_menu:
 
-            textbutton _("Menú principal") action MainMenu()
+                textbutton _("Menú principal") action MainMenu()
 
-        textbutton _("Acerca de") action ShowMenu("about")
+            textbutton _("Acerca de") action ShowMenu("about")
 
-        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+            if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
-            ## La ayuda no es necesaria ni relevante en dispositivos móviles.
-            textbutton _("Ayuda") action ShowMenu("help")
+                ## La ayuda no es necesaria ni relevante en dispositivos móviles.
+                textbutton _("Ayuda") action ShowMenu("help")
 
-        if renpy.variant("pc"):
+            if renpy.variant("pc"):
 
-            ## El botón de salida está prohibido en iOS y no es necesario en
-            ## Android y Web.
-            textbutton _("Salir") action Quit(confirm=not main_menu)
+                ## El botón de salida está prohibido en iOS y no es necesario en
+                ## Android y Web.
+                textbutton _("Salir") action Quit(confirm=not main_menu)
+    else:
+        vbox:
+            style_prefix "navigation"
 
+            xpos gui.navigation_xpos
+            yalign 0.5
+
+            spacing gui.navigation_spacing
+
+            if main_menu:
+
+                textbutton _("Comenzar") action Start()
+
+            else:
+
+                textbutton _("Historial") action ShowMenu("history")
+
+                textbutton _("Guardar") action ShowMenu("save")
+
+            textbutton _("Cargar") action ShowMenu("load")
+
+            textbutton _("Opciones") action ShowMenu("preferences")
+
+            if _in_replay:
+
+                textbutton _("Finaliza repetición") action EndReplay(confirm=True)
+
+            elif not main_menu:
+
+                textbutton _("Menú principal") action MainMenu()
+
+            textbutton _("Acerca de") action ShowMenu("about")
+
+            if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+
+                ## La ayuda no es necesaria ni relevante en dispositivos móviles.
+                textbutton _("Ayuda") action ShowMenu("help")
+
+            if renpy.variant("pc"):
+
+                ## El botón de salida está prohibido en iOS y no es necesario en
+                ## Android y Web.
+                textbutton _("Salir") action Quit(confirm=not main_menu)
 
 style navigation_button is gui_button
 style navigation_button_text is gui_button_text
+style hnavigation_button is navigation_button
+style hnavigation_button_text is navigation_button_text
 
 style navigation_button:
     size_group "navigation"
@@ -343,6 +388,8 @@ style navigation_button:
 style navigation_button_text:
     properties gui.text_properties("navigation_button")
 
+style hnavigation_button_text:
+    xalign 0.5 
 
 ## Pantalla del menú principal #################################################
 ##
@@ -372,6 +419,8 @@ screen main_menu():
 
             text "[config.name!t]":
                 style "main_menu_title"
+                xpos -100
+                ypos -850
 
             text "[config.version]":
                 style "main_menu_version"
@@ -387,7 +436,7 @@ style main_menu_frame:
     xsize 420
     yfill True
 
-    background "gui/overlay/main_menu.png"
+    # background "gui/overlay/main_menu.png"
 
 style main_menu_vbox:
     xalign 1.0
@@ -1622,3 +1671,46 @@ style slider_vbox:
 style slider_slider:
     variant "small"
     xsize 900
+
+screen separador_nivel(numero, titulo, frase):
+
+    modal True
+
+    add "bg fondo_marco"
+
+    vbox:
+        xalign 0.5
+        yalign 0.4
+        spacing 20
+
+        text "NIVEL [numero]":
+            size 30
+            color "#D8B88C"
+            xalign 0.5
+
+        text "[titulo]":
+            size 54
+            color "#FFFFFF"
+            xalign 0.5
+            text_align 0.5
+
+        text "[frase]":
+            size 24
+            color "#D0D0D0"
+            xalign 0.5
+            text_align 0.5
+
+    textbutton "Continuar":
+        xalign 0.3
+        yalign 0.85
+        action Return()
+
+    textbutton "Guardar":
+        xalign 0.5
+        yalign 0.85
+        action ShowMenu("save")
+
+    textbutton "Salir":
+        xalign 0.7
+        yalign 0.85
+        action MainMenu()
