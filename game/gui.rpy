@@ -29,13 +29,13 @@ define config.check_conflicting_properties = True
 define gui.accent_color = '#cc0066'
 
 ## El color del botón de texto cuando no está seleccionado ni enfocado.
-define gui.idle_color = '#707070'
+define gui.idle_color = "#cc0066"
 
 ## El color 'small' se usa para el texto pequeño, que necesita destacar más.
 define gui.idle_small_color = '#606060'
 
 ## El color usado en botones y barras que ganan foco.
-define gui.hover_color = '#cc0066'
+define gui.hover_color = "#ff0000"
 
 ## El color del botón de texto seleccionado pero no enfocado. Un botón está
 ## seleccionado si indica el valor actual de la pantalla o preferencia.
@@ -57,13 +57,13 @@ define gui.interface_text_color = '#404040'
 ## Tipos y tamaños de letra ####################################################
 
 ## El tipo de letra del texto del juego
-define gui.text_font = "DejaVuSans.ttf"
+define gui.text_font = "korinna-regular-bt.ttf"
 
 ## El tipo de letra de los nombres de personajes
 define gui.name_text_font = "DejaVuSans.ttf"
 
 ## El tipo de letra del texto externo al juego.
-define gui.interface_text_font = "DejaVuSans.ttf"
+define gui.interface_text_font = "korinna-regular-bt.ttf"
 
 ## El tamaño normal del texto del diálogo.
 define gui.text_size = 33
@@ -72,7 +72,7 @@ define gui.text_size = 33
 define gui.name_text_size = 45
 
 ## El tamaño del texto en la interfaz.
-define gui.interface_text_size = 33
+define gui.interface_text_size = 50
 
 ## El tamaño de etiquetas en la interfaz.
 define gui.label_text_size = 36
@@ -87,7 +87,7 @@ define gui.title_text_size = 75
 ## Menú principal y menús del juego ############################################
 
 ## Imágenes del menú principal y menús del juego.
-define gui.main_menu_background = "gui/main_menu.png"
+define gui.main_menu_background = "gui/main_menu.jpg"
 define gui.game_menu_background = "gui/game_menu.png"
 
 

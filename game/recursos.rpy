@@ -20,6 +20,7 @@ image bg fondo_casa_padres = im.Scale("images/backgrounds/casa_padres.png", 1920
 
 image bg fondo_parque = im.Scale("images/backgrounds/parque.png", 1920, 1080)
 
+image bg fondo_marco = im.Scale("images/backgrounds/Marco.jpg", 1920, 1080)
 
 # 
 # VALERIA + BEBÉ
