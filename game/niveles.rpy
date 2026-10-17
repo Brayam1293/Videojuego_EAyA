@@ -294,6 +294,125 @@ label nivel_2:
 
     "Fin del capitulo 2."
 
-    pause 1.0
+    call screen separador_nivel(
+        "03",
+        "Confrontacion",
+        "Regresar a Casa"
+    )
 
+    jump nivel_3
+
+label nivel_3:
+
+    # ESCENA 1 - REGRESAR A CASA
+
+    scene black with fade
+
+    pause 0.3
+
+    "{cps=25}Despues de descubrir su enbarazo Valeria decidio regresar a la casa de sus padres en busca de ayuda y consejo.{/cps}"
+
+    "{cps=20}Esperaba encontrar comprención y apoyo durante uno de los momentos mas importantes de su vida.{/cps} {w}Pero..."
+
+    scene bg fondo_casa_padres with dissolve
+
+    show valeria deprimida:
+        xalign 0.2
+        yalign -0.3
+
+    show padres normal:
+        xalign 0.9
+        yalign -0.3
+
+    v "{cps=30}Mamá,{w=1.0} Papá...{w=1.5} Necesito hablar con ustedes{/cps}"
+
+    v "{w=1.0}.{w=1.0}.{w=1.0}."
+
+    v "{cps=30}Estoy embarazada."
+
+    "{cps=30}La preocupacion de sus padres se veia en su mirada."
+
+    "{cps=30}Su madre deseaba que Valeria pudiera construir un futuro diferente."
     
+    "{cps=30}Aunque estaba preocupada queria apoyar a su hija."
+
+    "{cps=20}Sin embargo..."
+
+    show padres preocupados:
+            xalign 0.9
+            yalign -0.3
+
+    p "{cps=50}{size=50}!¿Que?!{/size}"
+
+    "{cps=30}El shock de la noticia hizo que su padre no pensra correctamente.."
+
+    p "{cps=50}{size=40}¿En que estabas Pensando?!!"
+
+    m "{cps=30}Cariño por favor, calmate."
+
+    "{cps=30}Valeria intento explicarse. Pero sin exito."
+
+    v "{cps=30}Porfavor, Papá.. Dejame explicart--"
+
+
+
+    "{cps=30}Sin embargo su padre no cambio de opinion."
+
+    "Finalmente, le pidio a Valeria que se marchara de su casa."
+
+    v "¿De verdad quieres que me vaya?{p} Soy tu hija..."
+
+    "Su madre queria adetenerla, pero no logro cambiar la decicion de su esposo."
+
+    v "¿Qué se supone que haré ahora?"
+
+    v "Tengo miedo.{w} Pero debo pensar en mi bebé y en mi futuro"
+
+    # ESCENA 4 - DECICION DE VALERIA
+
+    scene bg fondo_parque with dissolve
+
+    "Lejos de la casa de sus padres, Valeria intentó ordenar sus pensamientos."
+
+    "Tenia muchas dificultades por delante, pero todavia podia decidir como enfrentarlas."
+
+    menu:
+
+        "¿Qué deberia hacer Valeria?"
+
+        "Continuar luchando por sus estudios.":
+
+            $estudios+=1
+
+            v "No voy a abandonar mi carrera."
+
+            v "Quiero demostrar que puedo ser una buen madre y continuar con mis estudios."
+
+            "Valeria decidio seguir trabajando por el futuro que deseaba."
+
+        "Concenntrarse priemero en la seguridad de su bebé.":
+
+            $cuidado_bebe+=1
+
+            v "Mi bebé necesita que esté bien."
+
+            v "Voy a buscar la manera de salir adelante, {w=0.5}paso a paso."
+
+            "Valeria decidió priorizar la estabilidad de su nueva familia."
+
+    # FINAL DEL NIVEL 3
+
+    "Aquel dia, Valeria comprendio que su camino no seria sencillo."
+
+    "Pero todavia tenia sueños por cumplir y un futuro por construir."
+
+    "Fin del nivel 3."
+
+    call screen separador_nivel(
+        "04",
+        "a",
+        "a"
+    )
+
+
+    pause
