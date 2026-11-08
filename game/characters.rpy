@@ -5,9 +5,11 @@
 
 define v = Character("Valeria", color="#8B4513")
 
-define v = Character("Valeria Recuerdo", color="#e06d1b")
+define vr = Character("Valeria Recuerdo", color="#e06d1b")
 
-define b = Character("Bebé", colot="#cc0066")
+define en = Character("Raúl", color="#da0202")
+
+define b = Character("Bebé", color="#cc0066")
 
 define pv = Character("Pensamiento Valeria", color="#B9713E")
 

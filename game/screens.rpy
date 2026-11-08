@@ -1714,3 +1714,84 @@ screen separador_nivel(numero, titulo, frase):
         xalign 0.7
         yalign 0.85
         action MainMenu()
+
+
+default mensajes_chat = []
+
+screen celular_chat():
+
+    zorder 10
+
+    frame:
+        xalign 0.82
+        yalign 0.5
+
+        xsize 380
+        ysize 650
+
+        background Solid("#171717")
+        padding (15, 15)
+
+        vbox:
+            spacing 12
+
+            frame:
+                background Solid("#303030")
+                xfill True
+                padding (10, 15)
+
+                text "Raúl" color "#FFFFFF" size 25 bold True
+
+            viewport:
+                yinitial 1.0
+                yadjustment chat_scroll
+                mousewheel True
+                draggable True
+
+                vbox:
+                    spacing 15
+
+                    for remitente, mensaje in mensajes_chat:
+
+                        if remitente == "Raúl":
+
+                            hbox:
+                                xfill True
+
+                                frame:
+                                    background Solid("#353535")
+                                    xmaximum 270
+                                    padding (12, 10)
+
+                                    text mensaje:
+                                        color "#FFFFFF"
+                                        size 19
+
+                                null width 1
+
+                        else:
+
+                            hbox:
+                                xfill True
+
+                                null width 1
+
+                                frame:
+                                    background Solid("#2879C7")
+                                    xmaximum 270
+                                    padding (12, 10)
+
+                                    text mensaje:
+                                        color "#FFFFFF"
+                                        size 19
+
+            null height 5
+
+init python:
+    chat_scroll = ui.adjustment()
+
+    
+init python:
+
+    def agregar_mensaje(remitente, mensaje):
+        mensajes_chat.append((remitente, mensaje))
