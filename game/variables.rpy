@@ -18,3 +18,9 @@ default aceptarAyuda = False
 default valeriaDuda = False
 default resClase = 4
 default biblioteca = False
+
+#
+# VARIABLES ESPECIALES DE CAPITULO 2
+#
+
+default contarNoticia = 1
