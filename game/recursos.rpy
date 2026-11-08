@@ -33,6 +33,23 @@ image valeria_bebe triste = "images/valeria_bebe/triste.png"
 
 image valeria_bebe llorando = "images/valeria_bebe/llorando.png"
 
+# 
+# VALERIA
+# 
+image valeria normal = "images/valeria/normal.png"
+
+image valeria deprimida = "images/valeria/deprimida.png"
+
+image valeria preocupada = "images/valeria/preocupada.png"
+
+# 
+# PADRES
+# 
+image padres normal = "images/padres/normal.png"
+
+image padres preocupados = "images/padres/preocupados.png"
+
+image padres enojados = "images/padres/enojados.png"
 
 # 
 # FLASHBACKS

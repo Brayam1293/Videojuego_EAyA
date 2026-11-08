@@ -6,145 +6,607 @@
 
 label nivel_1:
 
+    scene black with fade
+
+    "{cps=30}Las deciciones importantes deberian ser planeadas con tiempo y detenimiento."
+
+    "{cps=30}Pero no todos tienen esa oportunidad."
+
+    "{cps=30}Como es el caso de Valeria, una joven univercitaria a la que su vida dio un giro inesperado."
+
+    "{cps=20}Por favor...{w=0.7} ayudala en lo que te sea posible..."
+
+    pause 1.3
+
     # 
-    # ESCENA 1 - CASA
+    # ESCENA 1 - MAÑANA APRESURADA
     # 
 
-    scene bg fondo_casa
+    scene bg fondo_casa with dissolve
 
-    show valeria_bebe normal:
-        xalign 0.5
-        yalign -0.3
+    show valeria_bebe normal at pos(0.5, -0.3)
     with dissolve
 
-    "Una nueva mañana comienza."
+    "{cps=30}Una nueva mañana comienza."
 
-    v "Hoy tengo clases temprano."
+    v "{cps=30}Hoy tengo clases temprano."
 
-    v "Debo prepararme antes de salir."
+    v "{cps=30}Debo prepararme antes de salir."
 
-    v "Ser mamá y estudiar no siempre es fácil..."
+    v "{cps=30}Revisare que tenga todo en mi mochila."
 
-    v "Pero quiero seguir adelante."
+    v "{cps=10}..."
 
+    show valeria_bebe preocupada at pos(0.5, -0.3)
 
-    # 
-    # DECISIÓN 1
-    # 
+    v "{cps=30}Oh no{w=0.6}, olvide hacer la tarea para hoy!."
+
+    v "{cps=30}Talvez si me apresuro pueda terminarla."
+
+    b "{cps=30}snif, snif..."
+
+    show valeria_bebe llorando at pos(0.5, -0.3)
+
+    b "{cps=30}!bua, buaa!"
+
+    v "{cps=30}Ay no, ¿qué tienes bebé?..{p=0.6} ¿Qué paso?.."
+
+    #
+    # DECISION 1
+    #
 
     menu:
 
-        "¿Qué hago antes de salir?"
+        v "{cps=30}¿Qué se supone que deberia hacer ahora?..."
+
+        "Centrarme en terminar mi tarea.":
+
+            $ estudios += 1
+            $ tareaPendiente = False
+            $ estres += 1
+
+            v "{cps=30}Perdoname bebé pero debo terminar esto, en un momento te atiendo ¿esta bien?"
+
+            "{cps=30}Valeria termino su tarea a las prisas, pero su bebé no paró de llorar hasta un rato despues"
+
+            show valeria_bebe triste at pos(0.5, -0.3)
+
+            v "{cps=30}Menos mal, porfin se calmó."
+
+            v "{cps=30}Ya casi es hora de irme."
+
+        "Atender al bebé primero.":
+
+            $ cuidado_bebe += 1
+
+            v "{cps=30}Supongo que puedo hacer que deje de llorar primero."
+
+            v "{cps=30}Despues de eso hago la tarea."
+
+            "{cps=30}El bebé no paraba de llorar por mas que Valeria lo intentaba."
+
+            "{cps=30}Cuando porfin se calmó, Valeria se dio cuenta de cuanto tiempo habia pasado."
+
+            show valeria_bebe preocupada at pos(0.5, -0.3)
+
+            v "{cps=30}Ay no, ya es tarde y no alcance a hacer la tarea que me faltaba."
+
+            v "{cps=30}Debo darme prisa."
+
+        "Hacer ambas cosas a la vez.":
+
+            $ estres += 2
+
+            v "{cps=30}No tengo mucho tiempo, tendre que hacer ambas cosas a la ves."
+
+            v "{cps=30}Aver bebé, calmate porfavor.."
+
+            "{cps=30}Por mas que intentaba el bebé no ceso su llanto."
+
+            "{cps=30}Y por no tener su atencion en la tarea no pudo terminarla a tiempo."
+
+            show valeria_bebe llorando at pos(0.5, -0.3)
+
+            b "{cps=30}{size=35}!Bua, bua!"
+
+            v "{cps=30}Oh no, ya es tarde y no eh terminado nada aun."
+
+            v "{cps=30}No hay de otra, tendre que irme asi."
+
+            v "{cps=30}Por favor ya calma bebé, estoy aqui contigo vez..."
+
+            "{cps=30}El bebé ceso su llanto poco despues de esto."
+
+            show valeria_bebe triste at pos(0.5, -0.3)
+
+            v "{cps=30}Menos mal...{w} Ya queda poco tiempo."
+
+    #
+    # ESCENA 1:2 - PREPARANDOSE PARA SALIR
+    #
+
+    menu:
+
+        v "{cps=30}Muy bien{w}, ¿Qué deberia hacer antes de salir?"
 
         "Preparar mis cosas para la universidad.":
 
+            $ objValeria = True
             $ estudios += 1
-            $ decisiones_nivel_1 += 1
 
-            v "Primero debo preparar mis apuntes."
+            show valeria_bebe normal at pos(0.5, -0.3)
 
-            v "Quiero llegar preparada a clase."
+            v "{cps=30}Primero deberia preparar mis cosas para la univercidad."
 
-        "Revisar que el bebé esté bien.":
+            v "{cps=30}Quiero llegar preparada a clase."
 
+            "{cps=30}Valeria se aseguro de tener todo listo para la universidad."
+
+            v "Bien, ya tengo todo listo."
+
+        "Organizar las cosas del bebé.":
+
+            $ objBebe = True
             $ cuidado_bebe += 1
-            $ decisiones_nivel_1 += 1
 
-            v "Antes de salir quiero asegurarme de que mi bebé esté bien."
+            show valeria_bebe normal at pos(0.5, -0.3)
 
-            v "Después podré concentrarme en mis clases."
+            v "{cps=30}Antes de salir quiero asegurarme de que tengo todo lo del bebé."
 
+            v "{cps=30}Después podré concentrarme en mis clases."
 
-    # 
-    # ESCENA 2 - EL BEBÉ LLORA
-    # 
+            "{cps=30}Valeria preparo todo lo que el bebé podria necesitar."
 
-    show valeria_bebe llorando:
-        xalign 0.5
-        yalign -0.3
-    with dissolve
+        "Preparar ambas cosas.":
 
-    v "¿Qué pasa, pequeño?"
+            $ objAmbos = True
 
-    v "Creo que necesitas algo."
+            show valeria_bebe normal at pos(0.5, -0.3)
 
+            v "{cps=30}Creo que puedo prepararlo todo, no deberia de tardar mucho ¿no?"
 
-    # 
-    # DECISIÓN 2
-    # 
-    menu:
+            "{cps=30}Valeria alisto las cosas para la escuela y para el bebé."
 
-        "¿Qué hace Valeria?"
+            v "{cps=30}Bien creo que eso deberia ser todo."
 
-        "Calmar al bebé.":
+            show valeria_bebe sorprendida at pos(0.5, -0.3)
 
-            $ cuidado_bebe += 1
-            $ decisiones_nivel_1 += 1
+            v "{cps=30}¡No habia visto la hora!, ya es muy tarde."
 
-            v "Tranquilo, mamá está aquí."
+            v "{cps=30}Debo darme prisa."
 
-            show valeria_bebe feliz:
-                xalign 0.5
-                yalign -0.3
-            with dissolve
+    if objAmbos == True:
+        show valeria_bebe preocupada:
+            linear 2.0 xalign 2.5 yalign -3.0
 
-            v "Ya estás más tranquilo."
+        "{cps=30}Valeria salio rapidamente de su casa camino a la escuela y logro calmarse un poco."
+    else:
+        v "{cps=30}Ahora sí, podemos irnos."
 
-        "Prepararme rápidamente para salir.":
-
-            $ estudios += 1
-            $ decisiones_nivel_1 += 1
-
-            v "Debo organizarme rápido."
-
-            v "También tengo que llegar a tiempo a clases."
-
-            show valeria_bebe normal:
-                xalign 0.5
-                yalign -0.3
-            with dissolve
-
-
-    # 
-    # ESCENA 3 - PREPARÁNDOSE PARA SALIR
-    # 
-
-    show valeria_bebe normal:
-        xalign 0.5
-        yalign -0.3
-    with dissolve
-
-    v "Mis apuntes están listos."
-
-    v "La pañalera también."
-
-    v "Ahora sí, podemos irnos."
-
-    show valeria_bebe normal:
-        linear 2.0 xalign 2.5 yalign -3.0
+        show valeria_bebe normal:
+            linear 3.0 xalign 2.5 yalign -3.0
 
     pause 1.2
 
-    # 
-    # ESCENA 4 - UNIVERSIDAD
-    # 
+    #
+    # ESCENA 2 - TRAYECTO A LA UNIVERCIDAD
+    #
 
-    scene bg fondo_universidad
+    scene bg fondo_trayecto
     with fade
 
-    show valeria_bebe normal:
-        xalign -0.3 yalign -0.3
-        linear 1.2 xalign 0.5
+    show valeria_bebe normal at move_derecha(-860, -0.3, 5.0, 800)
 
-    pause 1.2
+    "{cps=30}Durante su trayecto Valera no paraba de escuchar murmullos a su alrededor y sentir que la miraban."
 
-    v "Ya llegamos."
+    show valeria_bebe incomoda
 
-    v "Ahora debo concentrarme en mis clases."
+    pv "{cps=30}¿Porque siempre murmuran tanto?."
 
-    v "Quiero terminar mi carrera."
+    pv "{cps=25}Tampoco dejan de mirarme hoy tambien.."
 
-    v "Quiero demostrarme que puedo hacerlo."
+    pv "{cps=25}¿Porque no puedo ir tranquila a la univercidad al menos una vez."
+
+    b "{cps=30}Mmm, ma.. maa.."
+
+    v "{cps=30}jeje, tienes razon bebé, no podemos quedarnos aqui, tenemos que llegar a clases."
+
+    c "{cps=30}Hola."
+
+    v "{cps=30}Ah emm{w=0.5}, hola{cps=25}...{w=0.3}"
+
+    v "{cps=30}Disculpa pero, ¿nos conocemos o algo?"
+
+    v "{cps=30}La verdad es que no lo recuerdo."
+
+    c "{cps=30}A no, disculpa no me he prensentado."
+
+    $ name_npc = "Herneztino" # NOMBRE PROPUESTO POR RAMON EDUARDO
+    c "{cps=30}Me llamo Herneztino, estamos en la misma clase."
+
+    v "{cps=30}A si perdona, mucho gusto yo soy Valeria."
+
+    pv "{cps=30}No me suena de nada.."
+
+    v "{cps=30}Y.. Puedo hacer algo por tí?"
+
+    c "{cps=30}No no, perdona, de hecho queria preguntarte eso mismo a ti, ¿hay algo con lo que necesites ayuda?"
+
+    v "{cps=30}¿Y eso porque?, no nos conocemos siquiera.."
+
+    c "{cps=30}Si lo se, es solo que siempre veo que pasas por aqui cargando con todo lo de tu bebé."
+
+    c "{cps=30}Supuse que tal vez te vendria bien un poco de ayuda."
+
+    c "{cps=30}Asi que, ¿necesitas ayuda con algo?"
+
+    pv "{cps=30}No entiendo, ¿porque me ayudaria asi sin más?.."
+
+    pv "{cps=30}Todos parecen incomodos con que lleve a mi bebé a la universidad.{w=0.8} ¿Porque a el parece no importarle?"
+
+    menu:
+
+        pv "{cps=30}¿Qué deberia hacer?"
+
+        "Rechazar su ayuda.":
+
+            v "{cps=30}No gracias, puedo hacerlo por mi misma."
+
+            v "{cps=30}Solo te quitaria tiempo."
+
+            c "{cps=30}No te preocupes por eso."
+
+            c "{cps=30}Quisiera ayudarte, ya que siempre veo que llevas las cosas de tu bebé"
+
+            c "{cps=30}Ademas de las tuyas que necesitas en la univercidad."
+
+            v "{cps=30}Gracias pero estoy bien asi.."
+
+            pv "{cps=30}Debo ser capaz de hacerlo yo misma.."
+
+            pv "{cps=30}Es mi bebé despues de todo.{p=0.3}No deberia de hacer que afecte la rutina de otros.."
+
+            pv "{cps=30}Ademas no lo conosco de nada."
+
+            c "{cps=30}Okey, si tu lo dices esta bien."
+
+            c "{cps=30}Supongo que nos vemos luego entonces."
+
+        "Afirmar que no es necesario.":
+
+            v "{cps=30}No es necesario, de verdad. No quisiera molestarte con mis cosas."
+
+            c "{cps=30}No te preocupes por eso. De todas formas, tambien voy a la universidad."
+
+            pv "{cps=30}No lo entiendo.. ¿Deberia aceptar?... Apenas lo conozco. Pero parece que realmente intenta ayudar."
+
+            c "{cps=30}Ademas, no es necesario que lo lleves todo tu sola."
+
+            c "{cps=30}Podria ayudarte a llevar la pañalera si quieres."
+
+            pv "{cps=30}No quisiera molestarlo con esto.. seguramente tambien tenga sus propios asuntos."
+
+            pv "{cps=30}Pero es cierto que me cansa llevar siempre la pañalera cargando.."
+
+            menu:
+
+                pv "{cps=30}¿Debería aceptar su ayuda?.."
+
+                "Insistir en negarte":
+
+                    v "{cps=30}De verdad, estoy bien asi.."
+
+                    v "{cps=30}Pero muchas gracias."
+
+                    c "{cps=20}..."
+
+                    c "{cps=30}Okey, si asi lo quieres esta bien."
+
+                    c "{cps=30}Pero recuerda que mi oferta sigue en pie jeje."
+
+                    c "{cps=30}Bueno, nos vemos en la univercidad entonces."
+
+                "Aceptar su ayuda":
+
+                    $ aceptarAyuda = True
+                    $ valeriaDuda = True
+
+                    v "{cps=30}Bueno..."
+
+                    v "{cps=30}Pues, supongo que si estaria bien.. ya que insistes."
+
+                    "{cps=30}Valeria accedio a darle la pañalera a Herneztino."
+
+                    v "{cps=30}Gracias.."
+
+                    c "{cps=30}Con gusto."
+
+                    c "{cps=30}Bueno vamos, no queremos llegar tarde jaja."
+
+                    v "{cps=30}Si jaja, vamos."
+
+                    jump Cap1_aceptarAyuda
+
+        "Aceptar su ayuda.":
+
+            $ aceptarAyuda = True
+
+            pv "{cps=25}..."
+
+            pv "{cps=30}Está bien.."
+
+            v "{cps=30}Emm, okey.."
+
+            v "{cps=30}Está bien, muchas gracias por la ayuda."
+
+            c "{cps=30}Claro sin problema, te puedo ayudar con la pañalera."
+
+            v "{cps=30}Si, gracias."
+
+            "{cps=30}Valeria decidio dejar que su compañero la apoyara a llevar algunas cosas."
+
+            jump Cap1_aceptarAyuda
+
+    
+    v "{cps=30}Si claro..{p=0.5}Nos vemos."
+
+    "{cps=30}El chico siguio su camino dejando atras a Valeria."
+
+    v "{cps=30}Eso fue muy raro."
+
+    b "{cps=30}Mma.. mammh"
+
+    v "{cps=30}Si verdad, tu si me entiendes nene jaja."
+
+    v "{cps=30}Bueno bebé, ahora si vayamonos a la universidad."
+
+    "{cps=30}Valeria continuo con su camino."
+
+    # Cambio de escena a la universidad
+
+    v "{cps=30}Fuf.."
+
+    v "{cps=30}Bien, creo que aun alcanzo a llegar a la clase."
+    
+    pv "{cps=30}Aunque sigo pensando en la oferta de ese chico..{w=0.4} Tal vez debi haber aceptado.."
+
+    pv "{cps=30}No, no es momento para pensar en eso."
+
+    pv "{cps=30}Ahora debo consentrarme en la escuela."
+
+    pv "{cps=30}Debo demostrarles que puedo hacerlo.."
+
+    v "{cps=30}Démonos prisa bebé, que apenas comienza el día."
+
+    v "{cps=30}Vamos con todo!"
+
+    if aceptarAyuda == True:
+        label Cap1_aceptarAyuda:
+
+        $ estres -= 1
+        "{cps=30}Valeria y Herneztino se fueron juntos a la universidad."
+
+        "{cps=30}Valeria y Hernestino se la pasaron hablando durante el trayecto."
+
+        # Cambio de escena a la universidad
+
+        c "{cps=30}Jaja si, despues de que eso estuve forcejeando con mi perro para poder quitarselo."
+
+        v "{cps=30}Jajaja, me lo creo, tuve un perro hace tiempo y me la pasaba quitandole mis cosas."
+
+        pv "{cps=30}Es bastante agradable, hacia tiempo que no me reia así."
+
+        v "{cps=30}Bueno, parece que ya llegamos, muchas gracias por todo."
+
+        c "{cps=30}Gracias a ti, fue muy agradable charlar contigo."
+
+        c "{cps=30}Bien, ya tengo que irme, mis clases estan por empezar."
+
+        c "{cps=30}Nos vemos luego."
+
+        v "{cps=30}Si, nos vemos."
+
+        pv "{cps=30}La verdad eso fue bastante mejor de lo que esperaba.."
+
+        pv "{cps=30}Pero sige sin gustarme quitarle su tiempo a otros.."
+
+        v "{cps=30}Bueno ya, debo apresurarme para ir a clase."
+
+        v "{cps=30}Andando bebé!"
+
+    #
+    # ESCENA 3 - EN LA UNIVERCIDAD
+    #    
+    
+    "{cps=30}Cuando Valeria llego a la clase todos sus compañeros ya estaban alli."
+
+    # Cambio de escena a el salon de clase
+
+    v "{cps=30}Buen día maestro, disculpe la demora. ¿Puedo pasar?"
+
+    ms "{cps=30}Claro adelante, tóme asiento."
+
+    # Valeria toma asiento
+
+    ms "{cps=30}Buen día clase, ya que estamos tan cerca de las evaluacioes"
+
+    ms "{cps=30}El dia de hoy solo revisaremos los pendientes."
+
+    if tareaPendiente = True:
+
+        pv "{cps=30}Oh no, no llegue a terminarla en la mañana!."
+
+    else:
+
+        pv "{cps=30}Menos mal que la termine antes de venir."
+
+        pv "{cps=30}Me quite un peso de ensima."
+    
+    ms "{cps=30}Solo para recordarles, revisare tanto las preguntas y el resumen juntos."
+
+    ms "{cps=30}Tienen solo esta clase para poder entregarlas."
+
+    if tareaPendiente = True:
+        
+        pv "{cps=30}¡No puede ser! ¿son 2?"
+
+        pv "{cps=30}¡No podre terminarlas a tiempo!"
+
+        pv "{cps=15}..."
+
+        pv "{cps=30}¡NO!"
+
+        pv "{cps=30}No mientras siga pensando asi."
+
+        pv "{cps=30}Tengo hasta que acabe la clase, asi que debo intentarlo."
+
+    else:
+
+        pv "{cps=30}¿Qué?, ¿habia otra?"
+
+        pv "{cps=30}Esa aun no la he hecho."
+
+        pv "{cps=30}Bueno, tengo esta clase para entregarla. Spongo que puedo terminarla antes que de eso."
+
+        pv "{cps=30}Bien, hagamoslo Valeria, si se puede!."
+
+    #
+    # Minijuago (Si alcansa el tiempo)
+    #
+
+    if resumenTerminado == True && ayudaClase == True:
+
+        $ estudios += 2
+        $ resClase = 1
+
+        v "{cps=30}¡Bien, lo logramos! Muchisimas gracias."
+
+        v "{cps=30}Creo que no lo habria logrado sin tu ayuda."
+
+        c "{cps=30}No me agradezcas me alegra ayudar."
+
+        c "{cps=30}Ademas este pequeño es un encanto."
+
+        c "{cps=30}A que si bebé?"
+
+        b "{cps=30}Mmha mmhm"
+
+        v "{cps=30}Jaja, si tienes razón."
+
+        v "{cps=30}Bueno, vayamos a revisar."
+
+        c "{cps=30}Si, vamos."
+
+        jump resultadosClase
+
+    else if resumenTerminado == False && ayudaClase == True:
+
+        $ estres += 1
+        $ resClase = 2
+
+        v "{cps=30}No puede ser.. {w=0.4}No logre terminarlo..."
+
+        v "{cps=30}No se porque pense que si podria.."
+
+        c "{cps=30}..."
+
+        c "{cps=30}Vamos no digas eso, solamente te falto un poco mas de tiempo."
+
+        c "{cps=30}Ademas, aun puedes rescuperarte con el examen no?"
+
+        v "{cps=30}Si, bueno...{w=0.4} Tal vez."
+
+        c "{cps=30}Entonces no te angusties tanto."
+
+        c "{cps=30}Todavia tienes una oportunidad más."
+
+        c "{cps=30}¡Arriva esos animos!"
+
+        v "{cps=30}Je je, si, supongo que tienes razón."
+
+        ms "{cps=30}Disculpe, Valeria ¿verdad?"
+
+        v "{cps=30}A este. Si, soy yo."
+
+        ms "{cps=30}Okey, venga conmigo un momento porfavor."
+
+        v "{cps=30}Si, claro.."
+
+        jump resultadosClase
+
+    else if resumenTerminado == True && ayudaClase == False:
+
+        $ estudios += 2
+        $ resClase = 3
+
+        v "{cps=30}¡Wow!, de verdad no puedo creer que lo lograra."
+
+        v "{cps=30}Fue mucho mas dificil de lo que esperaba."
+
+        v "{cps=30}¿Desde cuando puedo escribir tan rapido?"
+
+        v "{cps=30}No espera, concentrate Valeria, hay que ir a revisar con el maesto."
+
+        pv "{cps=30}Bien, si sigo asi, no hay duda de que lo lograre."
+
+        pv "{cps=30}Ya lo verán."
+
+        jump resultadosClase
+
+    else: resumenTermindo == False && ayudaClase == False:
+
+        $ estres += 2
+        $ resClase = 4
+
+        pv "{cps=30}No puede ser..."
+
+        pv "{cps=30}No pude lograrlo.. No fui capaz.."
+
+        pv "{cps=30}A este paso.. {w=0.4}Yo..."
+
+        ms "{cps=30}Disculpe. ¿Es usted Valeria?"
+
+        v "{cps=30}A, si disculpe.. ¿necesita algo?"
+
+        ms "{cps=30}¿Podria acompañarme? Necesito hablar de algo con usted."
+
+        v "{cps=30}S-si, claro.. Ahora voy."
+
+        jump resultadosClase
+    
+    label resultadosClase:
+        if resClase == 1: # Completado con ayuda
+
+            v "{cps=30}Maestro, aqui estan las activdades."
+
+            ms "{cps=30}Muy bien, ahora mismo tienes buenas chances de pasar."
+
+            ms "{cps=30}Me alegra ver que te llevas bien con tu compañero."
+
+            v "{cps=30}Si, supongo que si. Me ha ayudado mucho."
+            
+            ms "{cps=30}Eso esta bien, me alegro por tí."
+
+            ms "{cps=30}Bueno, con esto entregado bastará con que tengas una nota aprobatoiria en el examen."
+
+            ms "{cps=30}Y deberias pasar con eso, asi que deberias relajarte un poco."
+
+            ms "{cps=30}Se ve que has estado algo estresada."
+
+            v "{cps=30}Si gracias, pero estoy bien por ahora."
+
+            v "{cps=30}Muchas gracias Maestro."
+
+            "{cps=30}Valeria entregó las tareas a tiempo."
+
+        else if resClase == 2: # No Completado con ayuda
+
+            ms 
+
+        else if resClase == 3: # Completado sin ayuda
+
+        else: # No completado sin ayuda
+
 
 
     # 
@@ -172,7 +634,6 @@ label nivel_1:
         "Pasar tiempo con el bebé.":
 
             $ cuidado_bebe += 1
-            $ decisiones_nivel_1 += 1
 
             show valeria_bebe feliz:
                 xalign 0.5
@@ -184,8 +645,6 @@ label nivel_1:
             v "Estos momentos también son importantes."
 
         "Descansar un momento.":
-
-            $ decisiones_nivel_1 += 1
 
             show valeria_bebe normal:
                 xalign 0.5
@@ -339,14 +798,18 @@ label nivel_3:
     "{cps=20}Sin embargo..."
 
     show padres preocupados:
-            xalign 0.9
-            yalign -0.3
+        xalign 0.9
+        yalign -0.3
 
-    p "{cps=50}{size=50}!¿Que?!{/size}"
+    p "{cps=50}{size=50}¡¿Que?!{/size}"
 
-    "{cps=30}El shock de la noticia hizo que su padre no pensra correctamente.."
+    show valeria preocupada:
+        xalign 0.2
+        yalign -0.3
 
-    p "{cps=50}{size=40}¿En que estabas Pensando?!!"
+    "{cps=30}El shock de la noticia hizo que su padre no pensara correctamente.."
+
+    p "{cps=50}{size=40}¡¡¿En que estabas Pensando?!!"
 
     m "{cps=30}Cariño por favor, calmate."
 
@@ -354,27 +817,61 @@ label nivel_3:
 
     v "{cps=30}Porfavor, Papá.. Dejame explicart--"
 
+    p "{cps=50}{size=40}¡¿Siquiera conocemos a ese chico?!"
 
+    p "{cps=50}{size=40}¿Quien se supone que es?"
 
-    "{cps=30}Sin embargo su padre no cambio de opinion."
+    m "{cps=30}Cariño por favor, deja que nos explique..."
 
-    "Finalmente, le pidio a Valeria que se marchara de su casa."
+    v "{cps=30}Papá por favor escuchame"
 
-    v "¿De verdad quieres que me vaya?{p} Soy tu hija..."
+    p "{cps=50}{size=40}¡No hay nada que escuchar!"
 
-    "Su madre queria adetenerla, pero no logro cambiar la decicion de su esposo."
+    p "{cps=50}{size=40}¡Si se creen suficientemente grandes para tener un hijo entonces esta claro que no hay necesidad de que te quedes en esta casa!"
 
-    v "¿Qué se supone que haré ahora?"
+    v "{cps=20}Pero{/cps}{w=0.6} {cps=10}Papá.."
 
-    v "Tengo miedo.{w} Pero debo pensar en mi bebé y en mi futuro"
+    m "{cps=40}¡Cariño por favor, sabes que esto no esta bien, piensa con claridad!"
+
+    "{cps=30}Sin embargo...{p=1.3}Su padre no cambio de opinion."
+
+    show valeria triste:
+        xalign 0.2
+        yalign -0.3
+
+    v "{cps=30}¿De verdad quieres que me vaya?..."
+
+    v "{cps=30}Soy tu hija..."
+
+    show padres tristes:
+        xalign 0.9
+        yalign -0.3
+
+    p "{cps=10}..."
+
+    p "{cps=15}Ya me oíste..."
+
+    "{cps=30}Su madre queria detenerla{w=0.7}, pero no logro cambiar la decicion de su esposo."
+
+    pv "{cps=25}¿Qué se supone que haré ahora?..."
+
+    pv "{cps=25}Tengo miedo..{w} {cps=35}Pero debo pensar en mi bebé y en mi futuro"
 
     # ESCENA 4 - DECICION DE VALERIA
 
+    scene bg Black with dissolve
+
+    p "{cps=15}¿Qué es lo que he hecho?{cps=10}..."
+
+    p "{cps=15}Mi querida hija vino aqui por ayuda y solo la deje a su suerte..."
+
+    p "¿Qué clase de padre soy?..."
+
     scene bg fondo_parque with dissolve
 
-    "Lejos de la casa de sus padres, Valeria intentó ordenar sus pensamientos."
+    "{cps=30}Lejos de la casa de sus padres{w}, Valeria intentó ordenar sus pensamientos."
 
-    "Tenia muchas dificultades por delante, pero todavia podia decidir como enfrentarlas."
+    "{cps=30}Tenia muchas dificultades por delante, pero todavia podia decidir como enfrentarlas."
 
     menu:
 
@@ -384,13 +881,13 @@ label nivel_3:
 
             $estudios+=1
 
-            v "No voy a abandonar mi carrera."
+            v "{cps=30}No voy a abandonar mi carrera."
 
-            v "Quiero demostrar que puedo ser una buen madre y continuar con mis estudios."
+            v "{cps=30}Quiero demostrar que puedo ser una buen madre y continuar con mis estudios."
 
-            "Valeria decidio seguir trabajando por el futuro que deseaba."
+            "{cps=35}Valeria decidio seguir trabajando por el futuro que deseaba."
 
-        "Concenntrarse priemero en la seguridad de su bebé.":
+        "Concentrarse priemero en la seguridad de su bebé.":
 
             $cuidado_bebe+=1
 
