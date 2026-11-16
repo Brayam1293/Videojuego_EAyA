@@ -978,51 +978,87 @@ label nivel_1:
 
 label nivel_2:
 
+    scene bg biblioteca with fade
+
     "{cps=30}Valeria se quedo dormida en la universidad."
 
     "{cps=30}Una ola de recuerdos inundan la mente de Valeria."
 
-    "{cps=30}Valeria no solia estar tan sola."
-
-    "{cps=30}Ella tuvo una pareja."
-
-    "{cps=30}Pareja con la cual creyó que estaría toda la vida."
+    "{cps=30}Valeria no solia estar tan sola, ella tuvo una pareja."
 
     "{cps=30}Pareja la cual creia que la apoyaria en estos momentos tan importantes de su vida."
 
     "{cps=30}Hace ya casi 1 año de ello."
 
-    "{cps=30}Tal parece que todo lo que ha pasado hasta ahora hizo que volvieran esos recuerdos."
-
-    # Mostrar a Valeria felz junto a su novio.
-
     #
     # ESCENA 1 - EN EL CAMPUS
     #
 
+    scene bg raul_biblioteca dormido with dissolve
+
     vr "{cps=30}Jajaja, ¿en serio? ¿Otra vez te quedaste dormido estudiando?"
+
+    scene bg raul_biblioteca avergonzado with dissolve
 
     en "{cps=30}Sabes que no es mi culpa que medicina tenga tantos temas por estudiar."
 
     vr "{cps=30}Eso dices siempre. Ya hasta parece que tu libro es más tu novia que yo."
 
+    scene bg biblioteca with dissolve
+
+    show valeria feliz:
+        xpos -100
+        yalign -0.3
+
+    show raul feliz:
+        xpos 900
+        yalign -0.3
+
     en "{cps=30}Bueno, al menos mi libro no se burla de mi cuando estoy cansado."
 
+    show valeria normal:
+        xpos -100
+        yalign -0.3
+
     vr "{cps=30}Jajaja, vamos no seas exagerado."
+
+    show raul normal:
+        xpos 900
+        yalign -0.3
 
     en "{cps=30}Jaja, bueno ya en serio, ¿como te fue hoy en clases?"
 
     vr "{cps=30}Bien, el maestro dejó mas tarea para la proxima semana."
 
+    show raul preocupado:
+        xpos 900
+        yalign -0.3
+
     en "{cps=30}¿Más? Parece que los maestros se ponen de acuerdo para no dejarnos descansar."
 
     vr "{cps=30}Hmm, lo dices como si no tuvieras tres examenes para esta semana."
 
+    show raul triste:
+        xpos 900
+        yalign -0.3
+
     en "{cps=30}Uhg, ni me lo recuerdes.."
+
+    show valeria feliz:
+        xpos -100
+        yalign -0.3
 
     vr "{cps=30}Jajaja, bueno, al menos estamos sufriendo juntos."
 
+    show raul feliz:
+        xpos 900
+        yalign -0.3
+
     en "{cps=30}Jeje si, Eso es lo importante ¿no?"
+
+    show valeria normal:
+        xpos -100
+        yalign -0.3
 
     vr "{cps=30}Supongo que si jeje."
 
@@ -1030,13 +1066,11 @@ label nivel_2:
 
     v "{cps=25}Como desearia poder volver..."
 
+    show raul normal:
+        xpos 900
+        yalign -0.3
+
     en "{cps=30}Oye amor, por cierto, ¿ya pensaste en que es lo que quieres hacer una vez que salgamos de la univercidad?"
-
-    vr "{cps=30}¿Mmh? ¿A que viene eso?"
-
-    en "{cps=30}No lo se, ultimamente pienso mucho en el futuro?"
-
-    v "{cps=25}Jeje, mentiroso, siempre estabas pensando en eso."
 
     vr "{cps=30}Mmm.. pues supongo que primero quisiera terminar la univercidad y conseguir un buen empleo."
 
@@ -1044,7 +1078,15 @@ label nivel_2:
 
     vr "{cps=30}Despues... no lo sé. Quizá independizarme, viajar un poco y supongo que conocer otros lugares."
 
+    show raul feliz:
+        xpos 900
+        yalign -0.3
+
     en "{cps=30}¿Osea que no estoy incluido en esos planes? Ouch."
+
+    show valeria feliz:
+        xpos -100
+        yalign -0.3
 
     vr "{cps=30}Jajaja, yo no dije eso!."
 
@@ -1054,7 +1096,15 @@ label nivel_2:
 
     v "{cps=25}Queria que estubieras en todos..."
 
+    show raul normal:
+        xpos 900
+        yalign -0.3
+
     en "{cps=30}Bueno ya, hablando enserio."
+
+    show valeria normal:
+        xpos -100
+        yalign -0.3
 
     menu:
 
@@ -1063,6 +1113,10 @@ label nivel_2:
         "Hablar sobre sus metas profecionales.":
 
             vr "{cps=30}Yo si hablaba enserio pero empezaste a bromear."
+
+            show raul feliz:
+                xpos 900
+                yalign -0.3
 
             en "{cps=30}Jaja, disculpa."
 
@@ -1074,13 +1128,25 @@ label nivel_2:
 
             vr "{cps=30}Y no pienso desepcionarlos."
 
+            show raul normal:
+                xpos 900
+                yalign -0.3
+
             en "{cps=30}hmm, me parece admirable."
 
             en "{cps=30}Confio en que lo lograras."
 
             vr "{cps=30}jeje Graci.."
 
+            show raul feliz:
+                xpos 900
+                yalign -0.3
+
             en "{cps=30}Ademas, asi podre decir que estoy con una exitosa mujer jaja."
+
+            show valeria feliz:
+                xpos -100
+                yalign -0.3
 
             vr "{cps=30}Jajaja, gracias tonto rompiste el momento romantico."
 
@@ -1094,11 +1160,17 @@ label nivel_2:
 
             vr "{cps=30}No se... {w=0.4}Tener algun lugar para nosotros."
 
-            vr "{cps=30}Solo nosotros dos, sabes."
-
             vr "{cps=30}Bueno, claro que seria despues de terminar nuestra carrera y eso ¿no?"
 
+            show valeria feliz:
+                xpos -100
+                yalign -0.3
+
             vr "{cps=30}Pero.. creo que seria lindo."
+
+            show raul feliz:
+                xpos 900
+                yalign -0.3
 
             en "{cps=30}Jeje, si. {w=0.3}Me encanta la idea."
 
@@ -1106,7 +1178,15 @@ label nivel_2:
 
             vr "{cps=30}Bueno, yo ya dije lo que quiero."
 
+            show valeria feliz:
+                xpos -100
+                yalign -0.3
+
             vr "{cps=30}Asi que tendras que terminar tu carrera para poder cumplir con mis caprichos jaja."
+
+            show raul feliz:
+                xpos 900
+                yalign -0.3
 
             en "{cps=30}Jajaja, ¿yo? si hasta hace un momento ni me incluias jaja."
 
@@ -1132,7 +1212,12 @@ label nivel_2:
     # ESCENA 2 - CITA EN EL PARQUE
     # 
 
-    # Cambio de escena al parque
+    scene bg fondo_parque with fade
+
+    show valeria preocupada:
+        xpos -100
+        yalign -0.3
+    with dissolve
 
     "{cps=30}2 Semanas despues."
 
@@ -1142,7 +1227,11 @@ label nivel_2:
 
     vr "{cps=30}Ah, ahi viene."
 
-    # Llega el Exnovio
+    show raul triste at move(1600, -0.3, 2.0, 900), flip with dissolve
+
+    show valeria enojada:
+        xpos -100
+        yalign -0.3
 
     vr "{cps=30}Pense que ya no vendrias."
 
@@ -1154,9 +1243,25 @@ label nivel_2:
 
     vr "{cps=30}Yo tambien las tengo y aun asi intento organizarme para poder venir."
 
+    show raul triste at flip:
+        xpos 900
+        yalign -0.3
+
     en "{cps=30}Esta bien, no te enojes, no tienes porque ponerte así."
 
+    show raul triste:
+        xpos 900
+        yalign -0.3
+
+    show valeria triste at flip:
+        xpos -100
+        yalign -0.3
+
     vr "{cps=30}No estoy enojada es solo que... {w=0.4}solamente queria pasar un rato contigo.."
+
+    show raul normal at flip:
+        xpos 900
+        yalign -0.3
 
     en "{cps=30}Bueno ya estoy aqui ¿no?, Vamos, no quiero que pasemos el dia discutiendo."
 
@@ -1172,9 +1277,21 @@ label nivel_2:
 
         "Decir que tambien deberia esforzarce por pasar tiempo juntos.":
 
+            show valeria preocupada:
+                xpos -100
+                yalign -0.3
+
             vr "{cps=30}Sabes.. la verdad no me gusta como va todo esto."
 
+            show raul preocupado:
+                xpos 900
+                yalign -0.3
+
             en "{cps=30}¿A que te refieres?"
+
+            show valeria enojada:
+                xpos -100
+                yalign -0.3
 
             vr "{cps=30}¡A esto¡ dices que no volvera a pasar pero ya ha pasado varias veces antes."
 
@@ -1184,31 +1301,67 @@ label nivel_2:
 
             vr "{cps=30}Yo tambien, pero no por eso descuido lo nuestro."
 
-            vr "{cps=30}Creo que deberias esforzarte mas por que pasaramos más tiempo juntos."
+            show valeria triste:
+                xpos -100
+                yalign -0.3
+
+            vr "{cps=30}Creo que deberias esforzarte más por que pasaramos más tiempo juntos."
+
+            show raul triste:
+                xpos 900
+                yalign -0.3
 
             en "{cps=30}Si esta bien.. hare lo posible para que asi sea."
 
         "Dejar pasar el comentario y continuar con su salida.":
 
+            show valeria triste:
+                xpos -100
+                yalign -0.3
+
             vr "{cps=30}Hmm, está bien.. tienes razón.."
 
             vr "{cps=30}No deberiamos pasar nuestro tiempo juntos discutiendo por estas cosas..."
+            
+            show raul feliz:
+                xpos 900
+                yalign -0.3
 
             en "{cps=30}Exacto, lo mejor sera que disfrutemos de lo que podamos."
+
+            show valeria triste at flip:
+                xpos -100
+                yalign -0.3
 
             vr "{cps=30}Si.. es cierto..."
 
         "Preguntar si realmente quiere pasar tiempo con ella.":
 
+            show valeria preocupada:
+                xpos -100
+                yalign -0.3
+
             vr "{cps=30}Oye Raúl..."
 
             vr "{cps=30}¿De verdad quires estar conmigo?"
+
+            show raul preocupado:
+                xpos 900
+                yalign -0.3
 
             en "{cps=30}¿Qué?, ¿porqué preguntas eso?"
 
             en "{cps=30}Por supuesto que que quiero estar contigo."
 
+            show raul triste:
+                xpos 900
+                yalign -0.3
+
             en "{cps=30}Es solo que.. no he tenido mucho tiempo libre."
+
+            show valeria triste:
+                xpos -100
+                yalign -0.3
 
             en "{cps=30}Y estoy teniendo problemas para organizarme."
 
@@ -1220,15 +1373,33 @@ label nivel_2:
     # ESCENA 3 - PLANES DEL EX
     #
 
+    scene bg cita_cafe with fade
+
+    show valeria normal:
+        xpos -200
+        yalign -0.3
+
+    show raul normal:
+        xpos 1200
+        yalign -0.3
+
     "Tras ese incidente en su cita su novio la invito a comer para compensarlo."
 
     en "{cps=30}Oye amor, ¿te he contado que estoy pensando en hacer mis practicas en otro hospital?"
 
     vr "{cps=30}¿En serio? ¿en cuál?"
 
-    en "{cps=30}Todavia noe stoy muy seguro, pero hay uno que me interesa bastante."
+    en "{cps=30}Todavia no estoy muy seguro, pero hay uno que me interesa bastante."
+
+    show valeria feliz:
+        xpos -200
+        yalign -0.3
 
     vr "{cps=30}Eso es genial, seguro qué lo consigues."
+
+    show raul feliz:
+        xpos 1200
+        yalign -0.3
 
     en "{cps=30}Jeje, no lo se. Tendria que esforzarme bastante."
 
@@ -1236,7 +1407,15 @@ label nivel_2:
 
     en "{cps=30}Gracias. Aunque eso significaria que probablemente tendría menos tiempo libre.."
 
+    show valeria normal:
+        xpos -200
+        yalign -0.3
+
     vr "{cps=30}Bueno, tampoco es como si tuvieras mucho ahora mismo."
+
+    show raul normal:
+        xpos 1200
+        yalign -0.3
 
     en "{cps=30}Ouch."
 
@@ -1256,11 +1435,23 @@ label nivel_2:
 
             vr "{cps=30}Eso si, tendriamos que organizarnos mejor con nuestras salidas."
 
+            show valeria feliz:
+                xpos -200
+                yalign -0.3
+
             vr "{cps=30}Y cierto individuo deberá de darle un pequeño espacio aunque sea a su novia jaja."
+
+            show raul feliz:
+                xpos 1200
+                yalign -0.3
 
             en "{cps=30}Jaja, si tienes razón, me alegra oir eso."
 
         "No me gustaria que descuides tus estudios por mi.":
+
+            show valeria preocupada:
+                xpos -200
+                yalign -0.3
 
             vr "{cps=30}Pues.. supongo que si seria posible con una mejor organizacion.."
 
@@ -1268,21 +1459,39 @@ label nivel_2:
 
             vr "{cps=30}No quisiera importunarte..."
 
+            show raul preocupado:
+                xpos 1200
+                yalign -0.3
+
             en "{cps=30}¿Qué? no no, claro que no."
 
             en "{cps=30}Tu jamas podrias importunarme."
 
-            en "{cps=30}Tambien eres importante para mi."
+            show raul normal:
+                xpos 1200
+                yalign -0.3
 
-            en "{cps=30}Asi que deberia darte mas de mi tiempo."
+            show valeria normal:
+                xpos -200
+                yalign -0.3
+
+            en "{cps=30}Tambien eres importante para mi."
 
         "Espero que no termines olvidandote de mi.":
 
-            vr "{cps=30}Claro que si, si ambos nos ponemos en ello seguro que podemos."
+            vr "{cps=30}Claro que sí, si ambos nos ponemos en ello seguro que podemos."
 
             vr "{cps=30}Es cierto que no nos veremos tanto pero creo que si podemos."
 
+            show valeria feliz:
+                xpos -200
+                yalign -0.3
+
             vr "{cps=30}Solo espero que no termines olvidadote de mi eh! Jaja.."
+
+            show raul feliz:
+                xpos 1200
+                yalign -0.3
 
             en "{cps=30}Jaja, claro que no."
 
@@ -1292,19 +1501,19 @@ label nivel_2:
 
     v "{cps=25}Tal vez tenga razon.."
 
-    v "{cps=25}Tal vez si sea yo la del problema..."
+    v "{cps=25}Tal vez si era yo la del problema..."
 
     #
     # ESCENA 4 - PRIMEROS CAMBIOS
     #
 
-    "{cps=30}Con el paso del sus responsabilidades no hicieron mas que aumentar."
+    "{cps=30}Con el paso del tiempo sus responsabilidades no hicieron mas que aumentar."
 
     "{cps=30}Se veian cada vez menos."
 
     "{cps=30}Y sus charlas se volvian cada vez mas cortas."
 
-    # Mostrar a Valeria sentada en una vanca de la univercidad
+    scene bg cuarto_valeria preocupada with fade
 
     vr "{cps=30}¿Habra terminado ya sus clases?"
 
@@ -1316,6 +1525,8 @@ label nivel_2:
 
     vr "{cps=30}Creo que ya me contestó."
 
+    scene bg cuarto_valeria celular
+
     $ mensajes_chat = []
 
     show screen celular_chat
@@ -1326,17 +1537,19 @@ label nivel_2:
 
     $ agregar_mensaje("Valeria", "Esta bien, no te preocupes")
 
-    $ agregar_mensaje("Valeria", "Entiendo")
+    pause 1.0
 
     $ agregar_mensaje("Raúl", "Te prometo que cuando termine esta semana tendremos tiempo para nosotros")
 
     vr "{cps=30}Antes tambien me dijiste que podriamos esta semana.."
 
-    $ agregar_mensaje("Valeria", "Está bien. Mucha suerte con tu examen")
+    $ agregar_mensaje("Valeria", "Está bien. Mucha suerte con tu examen. Te amo")
 
-    $ agregar_mensaje("Valeria", "Te amo")
+    pause 2.0
 
     $ agregar_mensaje("Raúl", "Yo a tí")
+
+    pause 3.0
 
     hide screen celular_chat
 
@@ -1352,17 +1565,25 @@ label nivel_2:
     # ESCENA 5 - MALESTARES EN CASA
     #
 
+    scene bg cuarto_valeria with fade
+
     "{cps=30}Pasaron cerca de 2 semanas."
 
     "{cps=30}Valeria continuo con sus actividades, aunque Valeria habia comenzado a sentirse diferente."
+
+    show valeria normal at move(-400, -0.3, 2.0, 200) with dissolve
+
+    pause 2.0
+
+    show valeria preocupada:
+        xpos 200
+        yalign -0.3
 
     vr "{cps=30}Que extraño.. ultimamente me he sentido bastante cansada."
 
     vr "{cps=30}Debe ser porque he estado muy ocupada."
 
     vr "{cps=30}Aunque... llevo varios dias sintiendome asi.."
-
-    vr "{cps=15}..."
 
     vr "{cps=30}No sera que..."
 
@@ -1372,15 +1593,17 @@ label nivel_2:
 
     v "{cps=25}Tenía razón.."
 
+    scene bg prueba with dissolve
+
     vr "{cps=30}¿Estoy.. Embarazada?"
 
     v "{cps=25}Antes pensaba que eso me alegraria.."
 
     v "{cps=25}Pero con todo lo que habia estando pasando.."
 
-    vr "{cps=30}No.. esto no puede estar pasando."
+    scene bg valeria_ansiedad with dissolve
 
-    vr "{cps=30}¿Qué voy a hacer ahora?"
+    vr "{cps=30}No.. esto no puede estar pasando."
 
     vr "{cps=30}¿Qué pasara con mis estudios? ¿Y con nosotros...?"
 
@@ -1396,6 +1619,8 @@ label nivel_2:
 
             vr "{cps=30}Para ya de poner peros Valeria."
 
+            scene bg valeria_decidida
+
             vr "{cps=30}Esto es algo importante, no es momento de dudar."
 
             vr "{cps=30}Debo ir a buscarlo."
@@ -1409,6 +1634,8 @@ label nivel_2:
             vr "{cps=30}No.."
 
             vr "{cps=30}Es demaciado pronto.."
+
+            scene bg valeria_preocupada
 
             vr "{cps=30}Tal vez este ocupado ahora.."
 
@@ -1425,6 +1652,8 @@ label nivel_2:
             vr "{cps=30}No, tal vez.. deba tomarme un tiempo."
 
             vr "{cps=30}No se como podria reaccionar.."
+
+            scene bg valeria_preocupada
 
             vr "{cps=30}¿Y si deicide dejarme?"
 
@@ -1448,9 +1677,18 @@ label nivel_2:
     # ESCENA 6 - UNA NOTICIA IMPORTANTE
     #
 
+    scene bg fondo_parque with fade
+
+    show valeria preocupada:
+        xpos -100
+        yalign -0.3
+    with dissolve
+    
     "{cps=30}La hora habia llegado, era momento de contarle."
 
     if contarNoticia == 1:
+
+        show raul normal at move(1600, -0.3, 1.5, 960)
 
         en "{cps=30}Valeria."
 
@@ -1460,7 +1698,9 @@ label nivel_2:
 
         en "{cps=30}¿Pasó algo?"
 
-        vr "{cps=30}Pues..."
+        show valeria triste:
+            xpos -100
+            yalign -0.3
 
         vr "{cps=30}Se podria decir que si.."
 
@@ -1468,17 +1708,17 @@ label nivel_2:
 
         v "{cps=25}Pero en ese momento.. me atrapó el miedo..."
 
-        en "{cps=30}Bueno, pues ya estoy aqui."
-
         en "{cps=30}Dime. ¿Qué paso? ¿Te encuentras bien? Pareces bastante preocupada."
 
-    elif contar noticia == 2:
+    elif contarNoticia == 2:
 
         vr "{cps=30}No se porque pense que lo mejor seria esperar."
 
         vr "{cps=30}Cuando podria ser un buen momento para contar algo com esto.."
 
         vr "{cps=30}.. Oh, parece que allí viene."
+
+        show raul normal at move(1600, -0.3, 1.5, 960)
 
         en "{cps=30}Valeria. Disculpa la demora."
 
@@ -1488,7 +1728,9 @@ label nivel_2:
 
         en "{cps=30}Parecias preocupada en tu mensaje."
 
-        vr "{cps=30}..."
+        show valeria triste:
+            xpos -100
+            yalign -0.3
 
     else:
 
@@ -1498,35 +1740,51 @@ label nivel_2:
         
         vr "{cps=30}Debo decirle y esperar lo mejor.."
 
+        show raul normal at move(1600, -0.3, 1.5, 960)
+
         en "{cps=30}Hola Valeria."
 
         en "{cps=30}Perdona la demora."
 
         en "{cps=30}Estaba terminando unos pendientes."
 
+        show valeria preocupada:
+            xpos -100
+            yalign -0.3
+
         vr "{cps=30}Si este.. está bien."
 
         en "{cps=30}¿Te encuetras bien?, pareces bastante preocupada."
+
+        show valeria triste:
+            xpos -100
+            yalign -0.3
 
     vr "{cps=30}Bueno.. es que, no se como decirtelo.."
 
     en "{cps=30}Tranquila. Sea lo que sea se que podremos sobrellevarlo juntos."
 
-    vr "{cps=20}..."
+    show valeria triste:
+        xpos -100
+        yalign -0.3
 
     vr "{cps=25}Estoy embarazada."
 
-    en "{cps=25}..."
-
-    vr "{cps=30}Se que es algo dificil de creer. Yo tampoco se que hacer.."
+    show raul preocupado:
+        xpos 960
+        yalign -0.3
 
     en "{cps=30}¿Estas segura?"
-
-    vr "{cps=30}Si..."
+    
+    vr "{cps=30}Se que es algo dificil de creer. Yo tampoco se que hacer.."
 
     en "{cps=30}Pero.. ¿Cómo paso esto?"
 
     vr "{cps=30}No lo sé, simplemtente pasó."
+
+    show valeria preocupada:
+        xpos -100
+        yalign -0.3
 
     vr "{cps=30}Ya no se que pensar.. estoy asustada.."
 
@@ -1544,13 +1802,19 @@ label nivel_2:
 
         "Necesito saber que puedo contar contigo..":
 
-            en "{cps=20}..."
-
             en "{cps=30}Si.. por supuesto que si."
+
+            show raul normal:
+                xpos 960
+                yalign -0.3
 
             en "{cps=30}Es mi hijo despues de todo ¿no?.."
 
             v "{cps=20}No se porqué te creí.."
+
+            show valeria triste:
+                xpos -100
+                yalign -0.3
 
             vr "{cps=30}Gracias.."
 
@@ -1558,37 +1822,59 @@ label nivel_2:
 
         "Quisiera que pensemos juntos que haremos..":
 
+            show raul normal:
+                xpos 960
+                yalign -0.3
+
             en "{cps=30}Ah, si.. es cierto."
 
             en "{cps=30}Tenemos mucho que planear ¿no?.."
 
             vr "{cps=30}Si.. asi es.."
 
+            show valeria normal:
+                xpos -100
+                yalign -0.3
+
             vr "{cps=30}Tendriamos que ver todo el tema de su comida."
 
             vr "{cps=30}Jugetes.. y todo eso."
+
+            show raul preocupado:
+                xpos 960
+                yalign -0.3
 
             en "{cps=30}Si.. pero ¿no crees que es algo pronto para todo eso?"
 
             en "{cps=30}Es que.. aun faltan muchos meses para que nazca ¿no?"
 
-            en "{cps=30}Creo que.. podriamos espera un poco para pensar en ello."
+            show valeria triste:
+                xpos -100
+                yalign -0.3
 
             vr "{cps=30}A si.. {w=0.2}claro.. {w=0.2}supongo que tienes razon..."
 
         "Sé que no tenemos todas las respuestas..":
 
+            show valeria triste:
+                xpos -100
+                yalign -0.3
+
             vr "{cps=30}Pero ahora mismo.. quisera que me escuches."
 
             vr "{cps=30}Se que no hemos pasado mucho tiempo juntos."
 
-            vr "{cps=30}Se bien que hemos estado muy ocupados ambos.."
-
             vr "{cps=30}Y se que todo esto es muy repentino pero.."
+
+            show valeria preocupada:
+                xpos -100
+                yalign -0.3
 
             vr "{cps=30}De verdad te necesito.."
 
-            vr "{cps=30}No puedo hacer esto sin tí..."
+            show raul normal:
+                xpos 960
+                yalign -0.3
 
             en "{cps=30}Si, lo se es solo que... me tomó por sorpresa.."
 
@@ -1596,20 +1882,33 @@ label nivel_2:
 
             en "{cps=30}Pero se que no puedo dejarte sola.."
 
+            show raul preocupado:
+                xpos 960
+                yalign -0.3
+
             en "{cps=30}Tendremos que hacerlo juntos."
 
-            vr "{cps=30}Si.. tienes razón."
-
-
     vr "{cps=30}Bueno.. tendre que hablar con mis padres."
+
+    show raul preocupado:
+        xpos 960
+        yalign -0.3
 
     en "{cps=30}Si, es cierto.. ¿Crees que sea buena idea?"
 
     vr "{cps=30}No lo sé, pero necesito decírselo"
 
+    show raul normal:
+        xpos 960
+        yalign -0.3
+
     en "{cps=30}Claro.. tienes razón."
 
     en "{cps=30}Bueno.. supongo que tendremos que pensar cómo hacerlo.."
+
+    show valeria normal:
+        xpos -100
+        yalign -0.3
 
     vr "{cps=30}Si.. tendremos que pensarlo."
 
@@ -1624,6 +1923,8 @@ label nivel_2:
     v "{cps=25}No tarde en entender que tendria que contarles a mis padres sola.."
 
     v "{cps=25}No tenia idea de lo que me esperaba..."
+
+    scene bg fondo_marco with fade
 
     call screen separador_nivel(
         "03",

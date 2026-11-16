@@ -18,27 +18,47 @@ image bg fondo_universidad = im.Scale("images/backgrounds/universidad.png", 1920
 
 image bg fondo_casa_padres = im.Scale("images/backgrounds/casa_padres.png", 1920, 1080)
 
-image bg fondo_parque = im.Scale("images/backgrounds/parque.png", 1920, 1080)
+image bg fondo_parque = im.Scale("images/backgrounds/parque/parque.png", 1920, 1080)
 
 image bg fondo_marco = im.Scale("images/backgrounds/Marco.jpg", 1920, 1080)
 
 image bg fondo_trayecto = im.Scale("images/backgrounds/trayecto.png", 1920, 1080)
 
-image bg salon_clase = im.Scale("images/backgrounds/salon_clases.png", 1920, 1080)
+image bg salon_clase = im.Scale("images/backgrounds/salon/salon_clases.png", 1920, 1080)
 
-image bg salon_preocupada = im.Scale("images/backgrounds/salon_preocupada.png", 1920, 1080)
+image bg salon_preocupada = im.Scale("images/backgrounds/salon/salon_preocupada.png", 1920, 1080)
 
-image bg salon_decidida = im.Scale("images/backgrounds/salon_decidida.png", 1920, 1080)
+image bg salon_decidida = im.Scale("images/backgrounds/salon/salon_decidida.png", 1920, 1080)
 
-image bg salon = im.Scale("images/backgrounds/salon.png", 1920, 1080)
+image bg salon = im.Scale("images/backgrounds/salon/salon.png", 1920, 1080)
 
-image bg vision_valeria = im.Scale("images/backgrounds/vision_valeria.png", 1920, 1080)
+image bg vision_valeria = im.Scale("images/backgrounds/parque/vision_valeria.png", 1920, 1080)
 
 image bg biblioteca = im.Scale("images/backgrounds/biblioteca/biblioteca.png", 1920, 1080)
 
 image bg valeria_biblioteca cansada = im.Scale("images/backgrounds/biblioteca/cansada.png", 1920, 1080)
 
 image bg valeria_biblioteca estudiando = im.Scale("images/backgrounds/biblioteca/estudiando.png", 1920, 1080)
+
+image bg raul_biblioteca dormido = im.Scale("images/backgrounds/biblioteca/raul_dormido.png", 1920, 1080)
+
+image bg raul_biblioteca avergonzado = im.Scale("images/backgrounds/biblioteca/raul_avergonzado.png", 1920, 1080)
+
+image bg cita_cafe = im.Scale("images/backgrounds/cita_cafe.png", 1920, 1080)
+
+image bg cuarto_valeria preocupada = im.Scale("images/backgrounds/cuarto_valeria/valeria_cuarto.png", 1920, 1080)
+
+image bg cuarto_valeria celular = im.Scale("images/backgrounds/cuarto_valeria/valeria_celular.png", 1920, 1080)
+
+image bg cuarto_valeria = im.Scale("images/backgrounds/cuarto_valeria/cuarto_completo.png", 1920, 1080)
+
+image bg prueba = im.Scale("images/backgrounds/cuarto_valeria/prueba.png", 1920, 1080)
+
+image bg valeria_ansiedad = im.Scale("images/backgrounds/cuarto_valeria/valeria_ansiedad.png", 1920, 1080)
+
+image bg valeria_decidida = im.Scale("images/backgrounds/cuarto_valeria/valeria_decidida.png", 1920, 1080)
+
+image bg valeria_preocupada = im.Scale("images/backgrounds/cuarto_valeria/valeria_preocupada.png", 1920, 1080)
 
 # 
 # VALERIA + BEBÉ
@@ -68,11 +88,30 @@ image herneztino amable = "images/herneztino/amable.png"
 # 
 # VALERIA
 # 
+
 image valeria normal = "images/valeria/normal.png"
 
-image valeria deprimida = "images/valeria/deprimida.png"
+image valeria triste = "images/valeria/triste.png"
 
 image valeria preocupada = "images/valeria/preocupada.png"
+
+image valeria feliz = "images/valeria/feliz.png"
+
+image valeria enojada = "images/valeria/enojada.png"
+
+# 
+# RAUL
+# 
+
+image raul normal = "images/raul/normal.png"
+
+image raul triste = "images/raul/triste.png"
+
+image raul preocupado = "images/raul/preocupado.png"
+
+image raul feliz = "images/raul/feliz.png"
+
+image raul enojado = "images/raul/enojado.png"
 
 # 
 # PADRES
