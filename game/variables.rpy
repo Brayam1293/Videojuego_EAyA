@@ -20,7 +20,20 @@ default resClase = 4
 default biblioteca = False
 
 #
+# VARIABLES MINIJUEGO
+#
+
+default resumenTerminado = False
+default ayudaClase = False
+
+#
 # VARIABLES ESPECIALES DE CAPITULO 2
 #
 
 default contarNoticia = 1
+
+#
+# VARIABLES ESPECIALES DE CAPITULO 3
+#
+
+default eleccionPasado = 1
