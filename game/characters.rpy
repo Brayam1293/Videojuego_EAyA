@@ -7,6 +7,8 @@ define v = Character("Valeria", color="#8B4513")
 
 define vr = Character("Valeria Recuerdo", color="#e06d1b")
 
+define a = Character("Veronica", color="#660074")
+
 define en = Character("Raúl", color="#da0202")
 
 define b = Character("Bebé", color="#cc0066")
