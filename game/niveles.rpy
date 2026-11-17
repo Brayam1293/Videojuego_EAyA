@@ -1939,27 +1939,45 @@ label nivel_3:
     # ESCENA 1 - REGRESAR A CASA
     #
 
+    scene bg casa_exterior with fade
+
     "{cps=30}Pasaron unas cuantas semanas."
 
     "{cps=30}Valeria aun tenia dudas, pero estaba segura de algo."
 
-    # Mostrar a Valeria frente a la casa de sus padres
+    show valeria preocupada at move(1600, -0.3, 2.0, 1000), flip with dissolve
 
     vr "{cps=30}Mis padres deben ser saberlo."
 
     vr "{cps=30}Llegara un punto en donde se daran cuenta."
+    
+    scene bg puerta_casa with dissolve
 
     vr "{cps=30}No puedo vivir ocultandocelo."
 
     vr "{cps=30}Debo decirles ahora."
 
-    "{cps=30}Valeria abrio la puerta de la casa, y fue recibida por su madre."
+    scene bg puerta_madre with dissolve
+
+    "{cps=30}Antes de que abriera la puerta fue recibida por su madre."
 
     m "{cps=30}Valeria! por fin llegaste, pensabamos que no llegarias a cenar con nosotros."
+
+    scene bg fondo_casa_padres with dissolve
+
+    show madre normal:
+        xpos 1100
+        yalign -0.33
+
+    show valeria triste at move(-400, -0.3, 1.0, -200) with dissolve
 
     m "{cps=30}Dime, ¿cómo te fue en la escuela?"
 
     vr "{cps=30}Ah, hola mamá este, bien.. supongo que bien..."
+
+    show madre preocupada zorder 2:
+        xpos 1100
+        yalign -0.33
 
     m "{cps=30}¿Qué sucede hija? ¿Te sientes bien?"
 
@@ -1969,7 +1987,13 @@ label nivel_3:
 
     p "{cps=30}¿Ya llego Valeria?"
 
+    show padre normal zorder 1 at move(1600, -0.1, 1.0, 800) with dissolve
+
     p "{cps=30}Oh, qué beno verte cariño normalmente no alcanzo a verte cuando vas a la universidad."
+
+    show valeria preocupada:
+        xpos -200
+        yalign -0.3
 
     vr "{cps=30}em, si. Yo eh.."
 
@@ -1977,7 +2001,15 @@ label nivel_3:
 
     v "{cps=25}Sentir como las palabras se atoraban en mi garganta.."
 
+    show padre preocupado:
+        xpos 800
+        yalign -0.1
+
     p "{cps=30}¿Qué pasa hija? ¿Paso algo en la univercidad?"
+
+    show valeria triste:
+        xpos -200
+        yalign -0.3
 
     vr "{cps=30}No exactametne.."
 
@@ -1991,15 +2023,29 @@ label nivel_3:
 
     vr "{cps=30}Estoy embarazada.."
 
-    # Mostrar padres sorprendidos
+    show padre shock:
+        xpos 800
+        yalign -0.1
+
+    show madre sorprendida:
+        xpos 1100
+        yalign -0.33
 
     "{cps=30}Por un momento, el silencio dominó en la casa."
 
     p "{cps=25}¿Qué fue lo que dijite?"
 
+    show valeria preocupada:
+        xpos -200
+        yalign -0.3
+
     vr "{cps=30}Yo.. estoy embarazada, papá."
 
     p "{cps=25}Pero.. {cps=32}¿cómo? {w=0.3}¿Desde cuando?"
+
+    show madre preocupada:
+        xpos 1100
+        yalign -0.33
 
     m "{cps=30}Cariño, espera. Déjala hablar."
 
@@ -2011,13 +2057,25 @@ label nivel_3:
 
     vr "{cps=30}Papá, yo.."
 
+    show padre enojado1:
+        xpos 800
+        yalign -0.1
+
     p "{cps=30}¡Todavia estás estudiando! ¡Ni siquiera has terminado tu carrera!"
 
     m "{cps=30}Por favor, dejala explicarnos."
 
     p "{cps=30}¿Y que se supone que pasara ahora? ¿Qué harás con tus estudios? ¿Cómo piensas mantener a un bebé?"
 
+    show valeria triste:
+        xpos -200
+        yalign -0.3
+
     vr "{cps=30}No lo sé.. Yo tambien tengo miedo, pero..."
+
+    show padre enojado3:
+        xpos 800
+        yalign -0.1
 
     p "{cps=30}¿Y el muchacho? ¿Él sabe lo que esta pasando?"
 
@@ -2025,35 +2083,79 @@ label nivel_3:
 
     p "{cps=30}¿Y qué dijo? ¿Se hará responsable?"
 
+    show valeria preocupada:
+        xpos -200
+        yalign -0.3
+
     vr "{cps=30}Bueno.. él..."
 
     v "{cps=30}Una parte de mi ya sabia que no volvería.."
 
     v "{cps=30}Pero no podia decirles eso..."
 
+    show valeria triste:
+        xpos -200
+        yalign -0.3
+
     vr "{cps=30}Dijo que.. que lo pensariamos juntos."
+
+    show padre enojado1:
+        xpos 800
+        yalign -0.1
 
     p "{cps=30}¿Eso es todo? ¿Y tú confias en que va a cumplirlo?"
 
     vr "{cps=30}Pues, yo.."
 
+    show madre molesta:
+        xpos 1100
+        yalign -0.33
+
     m "{cps=30}No la presiones así. Ella tambien esta asustada."
+
+    show padre enojado2:
+        xpos 800
+        yalign -0.1
 
     p "{cps=30}¡Precisamente por eso estoy preocupado! ¡No quiero que arruine su vida por una decisión que no pensó!"
 
     v "{cps=30}Para este punto mi madre ya estaba en su limite.."
 
+    show madre enojada:
+        xpos 1100
+        yalign -0.33
+
     m "{cps=30}¡Ya basta!"
 
+    show padre enojado1:
+        xpos 800
+        yalign -0.1
+
     p "{cps=30}¿Qué?"
+
+    show madre molesta:
+        xpos 1100
+        yalign -0.33
 
     m "{cps=30}¿Qué no te das cuenta de que esta intentando pedirnos ayuda?"
 
     m "{cps=30}No necesita que le grites ni que le recuerdes todo lo que puede salir mal. ¡Ella ya lo sabe!"
 
+    show padre enojado1:
+        xpos 800
+        yalign -0.1
+
     p "{cps=30}¿Y que quieres que haga? ¿Qué actue como si no estuviera pasando nada?"
 
+    show madre enojada:
+        xpos 1100
+        yalign -0.33
+
     m "{cps=30}¡No! Quiero que la escuches antes de decidir que hacer."
+
+    show valeria preocupada:
+        xpos -200
+        yalign -0.3
 
     vr "{cps=30}Mamá.."
 
@@ -2061,35 +2163,95 @@ label nivel_3:
     # ESCENA 3 - EXPULCION
     #
 
+    show padre enojado3:
+        xpos 800
+        yalign -0.1
+
     p "{cps=30}...No puedo creer que estemos pasando por esto."
+
+    show madre molesta:
+        xpos 1100
+        yalign -0.33
 
     m "{cps=30}Es nuestra hija. Necesita que estemos con ella."
 
+    show padre enojado1:
+        xpos 800
+        yalign -0.1
+
     p "{cps=30}¡No se como ayudarla si ni siquiera penso en las consecuencias!"
+
+    show valeria triste:
+        xpos -200
+        yalign -0.3
 
     vr "{cps=30}Papá, por favor.. yo no quería que las cosas fueran así."
 
+    show padre enojado2:
+        xpos 800
+        yalign -0.1
+
     p "{cps=30}¡Entonces debiste pensarlo antes!"
 
-    m "{cps=30}¡No le hable así!"
+    show madre enojada:
+        xpos 1100
+        yalign -0.33
+
+    m "{cps=30}¡No le hables así!"
 
     vr "{cps=30}Yo solamente.. quería contarles porque no sé que hacer."
+
+    show madre molesta:
+        xpos 1100
+        yalign -0.33
+
+    show padre enojado3:
+        xpos 800
+        yalign -0.1
 
     p "{cps=30}¿Entonces en que momento se les ocurrio que seria buena idea tener un bebé?"
 
     p "{cps=30}Si ya se creen sufucientemente adultos para tener un hijo, entonces tambien deberian serlo para hacerse cargo de sus deciciones."
 
+    show valeria sorprendida:
+        xpos -200
+        yalign -0.3
+
     vr "{cps=30}¿Qué...?"
 
-    m "{cps=30}¡_________!"
+    show madre enojada:
+        xpos 1100
+        yalign -0.33
+
+    m "{cps=30}¡Erasmo!"
+
+    show padre enojado1:
+        xpos 800
+        yalign -0.1
+
+    show madre molesta:
+        xpos 1100
+        yalign -0.33
 
     p "{cps=30}No puedo seguir fingiendo que nada ha pasado. Si decidiste tomar ese camino no tienes porque quedarte en esta casa."
 
     v "{cps=20}..."
 
+    show madre enojada:
+        xpos 1100
+        yalign -0.33
+
     m "{cps=30}¡No puedes estar hablando en serio! ¡Es tu hija!"
 
+    show padre espalda:
+        xpos 800
+        yalign -0.1
+
     p "{cps=30}Necesito que te vayas, Valeria."
+
+    show valeria triste:
+        xpos -200
+        yalign -0.3
 
     vr "{cps=30}¿De verdad quieres que me vaya..?"
 
@@ -2097,7 +2259,15 @@ label nivel_3:
 
     p "{cps=20}..."
 
-    m "{cps=30}Valeria espera. No tienes que irte ahora. Podemos hablarlo con más calma."
+    show madre preocupada:
+        xpos 1100
+        yalign -0.33
+
+    m "{cps=30}Valeria espera. No tienes porque irte. Podemos hablarlo con más calma."
+
+    show valeria triste at flip:
+        xpos -200
+        yalign -0.3
 
     vr "{cps=30}No.. está bien, mamá."
 
@@ -2107,23 +2277,17 @@ label nivel_3:
     # ESCENA 4 - CONSECUENCIAS
     #
 
-    # Mostrar a valeria saliendo de casa
+    show valeria triste at flip, move(-200, -0.3, 1.0, -860)
 
-    m "{cps=30}¡Valeria, espera!"
+    pause 0.5
 
-    vr "{cps=30}Mamá, porfavor.. necesito estar sola un momento."
-
-    m "{cps=30}No tienes porque afrontar esto sin nosotros."
-
-    vr "{cps=30}Lo se.. pero ahora mismo no puedo quedarme aquí."
-
-    # Valeria termina de salir de escena
+    show madre preocupada at move(1100, -0.33, 1.5, 200)
 
     m "{cps=30}..."
 
-    m "{cps=30}¿Qué rayos te pasa?"
-
-    p "{cps=30}¿Qué me pasa a mí?"
+    show madre molesta at flip:
+        xpos 200
+        yalign -0.33
 
     m "{cps=30}Nuestra hija vino aqui a pedirnos ayuda. y lo unico que se te ocurre es simplemente echarla?"
 
@@ -2135,7 +2299,12 @@ label nivel_3:
 
     m "{cps=30}Siempre lo has sido."
 
-    # La madre sale de escena y aparece el fondo negro
+    show madre molesta at flip:
+        linear 2.5 xalign 2.5 yalign -4.0
+
+    pause 2.0
+
+    show padre triste at move(800, -0.1, 1.5, 400)
 
     p "{cps=30}¿Qué es lo que he hecho...?"
 
@@ -2147,17 +2316,15 @@ label nivel_3:
 
     p "{cps=30}No se que hacer.. No queria que las cosas terminaran asi."
 
-    p "{cps=30}¿Cómo pude decirle que se fuera...?"
-
     #
     # ESCENA 5 - DECISION SOBRE EL FUTURO
     #
 
-    # Cambio de escena a Valeria en el parque
+    scene bg parque_nocturno with fade
+
+    show valeria triste at move(-300, -0.3, 2.0, 200) with dissolve
 
     v "{cps=25}Despues de todo lo que paso en casa.."
-
-    v "{cps=25}Sabia que no podria volver asi sin más.."
 
     v "{cps=25}Sentia que estaba completamente sola en esto..."
 
@@ -2167,7 +2334,9 @@ label nivel_3:
 
     vr "{cps=30}Mamá intentó ayudarme pero.."
 
-    # Mostrar a valeria sentada en un banco
+    pause 1.0
+
+    scene bg parque_nocturno triste with dissolve
 
     vr "{cps=30}¿Y ahora qué voy a hacer?"
 
@@ -2185,6 +2354,8 @@ label nivel_3:
 
             vr "{cps=30}No."
 
+            scene bg parque_nocturno decidida
+
             vr "{cps=30}Dejar todo mi futuro y mis sueños de lado no es opcion."
 
             vr "{cps=30}Yo puedo. Solo tengo que organizarme ¿no?"
@@ -2193,29 +2364,23 @@ label nivel_3:
 
             vr "{cps=30}Tal vez tenga que sacrificar algunas horas de sueño pero, supongo que no será tan malo ¿no?.."
 
+            scene bg parque_nocturno decaida
+
             vr "{cps=30}Tendre que saltarme algunas comidas.."
 
-            vr "{cps=30}No veré tanto a mis amigos.."
-
-            vr "{cps=25}Ni a mis padres.."
-
-            vr "{cps=20}..."
+            vr "{cps=30}No veré tanto a mis amigos.. {w=0.6}Ni a mis padres.."
 
             vr "{cps=30}Yo.. {w=0.6}{cps=25}Yo puedo..."
 
             v "{cps=25}Esa fue una de las desiciones mas dificiles que habia tomado.."
 
-            v "{cps=25}Sabia lo que conllevaría.."
-
             v "{cps=25}A veces me pregunto si hice lo correcto.."
 
-            v "{cps=25}Despues de todo.. me elegi a mi antes que a mi niño."
+            v "{cps=25}Despues de todo.. una madre deberia ver primero por su hijo ¿no?."
 
             v "{cps=25}Sabiendo eso.."
 
             v "{cps=25}¿Siquiera puedo considerarme una buena madre...?"
-
-            v "{cps=25}No lo se.."
 
             v "{cps=25}Y al final no sirvio. Reprobe igualmente en multiples ocaciones.."
 
@@ -2229,13 +2394,15 @@ label nivel_3:
 
             vr "{cps=30}¿De verdad estoy dudando en cual de los 2 priorizar?"
 
-            vr "{cps=30}Mi bebé me necesita."
-
             vr "{cps=30}No puedo pensar solo en mi misma y en lo que quiero."
+
+            scene bg parque_nocturno decidida
 
             vr "{cps=30}Este bebé debe ser mi prioridad ahora.."
 
             vr "{cps=30}Tendre que tomarme un tiempo para organizarlo todo."
+
+            scene bg parque_nocturno decaida
 
             vr "{cps=30}Tal vez.. tenga que tomarme un tiempo de la univercidad..."
 
@@ -2247,11 +2414,11 @@ label nivel_3:
 
             v "{cps=30}Jamas podria arrepentirme de elegir a mi bebé."
 
-            v "{cps=30}Aunque.."
-
-            v "{cps=25}Supongo que es por esa desicion que ésta, es mi última oportunidad.."
+            v "{cps=30}Aunque.. Supongo que es por esa desicion que ésta, es mi última oportunidad.."
 
     vr "{cps=30}No pienses más en ello Valeria."
+
+    scene bg parque_nocturno piernas with dissolve
 
     vr "{cps=30}No es momento de lloriqueos."
 
@@ -2265,21 +2432,34 @@ label nivel_3:
     # ESCENA 6 - REFUGIO
     #
 
+    scene bg parque_nocturno with fade
+
+    show valeria preocupada:
+        xpos 200
+        yalign -0.3
+    
+    show veronica normal at move(1300, -0.3, 1.5, 900) with dissolve
     a "{cps=30}¿Qué haces aqui a esta hora? ¿No deberias estar en..?"
 
-    # La amiga ve a Valeria tratando de contener las lagrimas
-
-    a "{cps=30}..."
+    show veronica preocupada:
+        xpos 900
+        yalign -0.3
 
     a "{cps=30}¿Te encuentras bien?, ¿sucedio algo?"
 
-    a "{cps=30}¿Acaso estas llorando?"
-
     vr "{cps=30}¿Qué? no, yo solo... {w=0.3}Estoy bien.."
+
+    show veronica molesta:
+        xpos 900
+        yalign -0.3
 
     a "{cps=30}Valeria, te conozco desde hace mucho timepo. Sabes que no me pudes engañar tan facil."
 
     a "{cps=30}No tienes porque fingir conmigo. Asi que dime, ¿qué paso?"
+
+    show valeria triste:
+        xpos 200
+        yalign -0.3
 
     vr "{cps=30}Es que, yo.. no quisiera preocuparte."
 
@@ -2287,49 +2467,91 @@ label nivel_3:
 
     vr "{cps=25}..."
 
-    a "{cps=30}Vamos, ¿por qué no vienes conmigo? Podemos hablar mas tranquila en mi casa, ¿sí?"
+    show veronica normal:
+        xpos 900
+        yalign -0.3
+
+    a "{cps=30}Vamos, ¿por qué no vienes conmigo? Podemos hablar mas tranquilas en mi casa, ¿sí?"
+
+    show valeria preocupada:
+        xpos 200
+        yalign -0.3
 
     vr "{cps=30}No quisiera molestarte con esto.."
 
+    show veronica molesta:
+        xpos 900
+        yalign -0.3
+
     a "{cps=30}¡No es ninguna molesita! Además, no pienso dejarte aquí sentada con esa cara."
 
-    vr "{cps=30}Je... okey.. está bien."
+    show valeria triste:
+        xpos 200
+        yalign -0.3
+
+    vr "{cps=30}Okey.. está bien."
+
+    show veronica normal:
+        xpos 900
+        yalign -0.3
 
     a "{cps=30}Asi se habla. Vamos anda, que ya esta helando aqui fuera."
 
-    v "{cps=30}Je, como simpre no pude llevarle la contraria."
-
     v "{cps=30}Nunca pude ganar cuando se trata de ella."
 
-    v "{cps=30}Al final si termine llendo a su casa."
+    scene bg sala_vcasa with fade
+
+    pause 0.5
+
+    show veronica normal at flip:
+        xpos -200
+        yalign -0.3
+    with dissolve
+
+    show valeria triste at flip:
+        xpos 900
+        yalign -0.3
+    with dissolve
 
     v "{cps=30}Me ofrecio bebida y un lugar calido para descansar.."
 
-    v "{cps=30}Se sintió.. {w=0.4}Como volver a respirar despues de que me estuviera ahogando."
+    v "{cps=30}Se sintió.. {w=0.4}Como volver a respirar tras estarme ahogando."
 
     v "{cps=30}Despues de un rato le conté todo lo que habia sucedido."
 
-    v "{cps=30}Desde que descubrí mi embarazo hasta lo ocurrido en casa de mis padres."
+    show veronica molesta at flip:
+        xpos -200
+        yalign -0.3
 
     a "{cps=30}¿En serio te dijeron que te fueras?"
-
-    vr "{cps=30}Sí.."
 
     a "{cps=30}Pero... ¡es tu casa tambien! No pudeo creer que tu papá haya hecho algo asi."
 
     vr "{cps=30}El estaba muy enojado.. supongo que no sabía qué hacer.."
 
+    show veronica molesta2 at flip:
+        xpos -200
+        yalign -0.3
+
     a "{cps=30}Eso no justifica que te haya echado."
 
-    vr "{cps=30}Mi mamá intento detenerlo, pero.."
-
     a "{cps=30}¿Y ahora donde piensas quedarte?"
+    
+    show veronica preocupada at flip:
+        xpos -200
+        yalign -0.3
+
+    show valeria preocupada at flip:
+        xpos 900
+        yalign -0.3
 
     vr "{cps=30}No lo se..."
 
     vr "{cps=30}No tengo mucho dinero.. Y tamopoco quisiera causarles más problemas."
 
-    a "{cps=30}..."
+    show veronica molesta at flip:
+        xpos 900
+        yalign -0.3
 
     a "{cps=30}¿Y que hay de Raúl? ¿No puede ayudarte?"
 
@@ -2337,37 +2559,73 @@ label nivel_3:
 
     a "{cps=30}¿No estas segura? ¿A que te refieres con eso?"
 
+    show valeria triste at flip:
+        xpos 900
+        yalign -0.3
+
     vr "{cps=30}Es que.. despues de contarle lo del embarazo comenzó a alejarse."
 
     vr "{cps=30}Ya no me contesta los mesnajes.. y ya ni siquiera voltea a verme en la universidad.."
 
-    a "{cps=30}Como se atreve.. juro que lo estrangulo en cuanto lo vea."
-
     vr "{cps=30}Pensé que podríamos solucionarlo juntos, pero..."
+
+    show valeria preocupada at flip:
+        xpos 900
+        yalign -0.3
 
     vr "{cps=25}Supongo que me equivoqué.."
 
+    show veronica triste at flip:
+        xpos -200
+        yalign -0.3
+
     a "{cps=25}Valeria..."
+
+    show valeria triste:
+        xpos 900
+        yalign -0.3
 
     vr "{cps=30}Perdón, no quiero hablar más de eso. Lo siento."
 
     a "{cps=30}No no, al contrario.."
 
-    # Mostrar a amiga avergonzada
+    show veronica avergonzada at flip:
+        xpos -200
+        yalign -0.3
 
     a "{cps=25}Perdón, supongo que no debi entrometerme tanto.."
 
+    show valeria burlona at flip:
+        xpos 900
+        yalign -0.3
+
     vr "{cps=30}Pff jajaja."
+
+    show veronica normal at flip:
+        xpos -200
+        yalign -0.3
 
     a "{cps=30}¿Y tu ahora de que te ries..?, ¿te golpeaste la cabeza o algo?"
 
+    show valeria normal at flip:
+        xpos 900
+        yalign -0.3
+
     vr "{cps=30}Perdóna es que, es la primera vez que te escucho disculpatre."
+
+    show veronica molesta at flip:
+        xpos -200
+        yalign -0.3
 
     a "{cps=30}¿Y eso es gracioso?"
 
     v "{cps=30}Je, tenemos muchos años de conocernos."
 
     v "{cps=30}Pero con lo terca que eres nunca te habia escuchado disculparte por algo."
+
+    show valeria burlona:
+        xpos 900
+        yalign -0.3
 
     vr "{cps=30}No, no, perdón, eso solo que no me lo esperaba, muchas gracias."
 
@@ -2381,41 +2639,87 @@ label nivel_3:
     # ESCENA 7 - PROPUESTA INESPERADA
     #
 
-    a "{cps=30}Oye, Valeria..."
+    show veronica preocupada at flip:
+        xpos -200
+        yalign -0.3
 
-    vr "{cps=30}¿Mmm?"
+    a "{cps=30}Oye, Valeria..."
 
     a "{cps=30}¿Por qué no te quedas aquí unos días?"
 
-    vr "{cps=30}¿Qué..?"
+    show veronica normal at flip:
+        xpos -200
+        yalign -0.3
 
     a "{cps=30}Puedes quedarte en mi casa."
 
+    show valeria preocupada at flip:
+        xpos 900
+        yalign -0.3
+
     vr "{cps=30}No, no podria hacer eso..."
+
+    show veronica molesta at flip:
+        xpos -200
+        yalign -0.3
 
     a "{cps=30}¿Por qué no? ¿No te gusta mi casa o que?"
 
     vr "{cps=30}No, no es eso es que.. Ya has hecho mucho por mi."
 
+    show valeria triste at flip:
+        xpos 900
+        yalign -0.3
+
     vr "{cps=30}No quiero convertirme en una carga.."
+
+    show veronica molesta2 at flip:
+        xpos -200
+        yalign -0.3
 
     a "{cps=30}¿Una carga? ¿De verdad piensas que voy a verte sin un lugar donde quedarte y simplemente dejare que te las arregles sola?"
 
-    vr "{cps=30}Pero..."
-
     a "{cps=30}Escucha. No tienes que decidir todo que harás con toda tu vida esta noche."
+
+    show veronica molesta at flip:
+        xpos -200
+        yalign -0.3
 
     a "{cps=30}Puedes quedarte aqui mientras te organizas. No tienes que preocuparte por eso ahora."
 
+    show valeria preocupada at flip:
+        xpos 900
+        yalign -0.3
+
     vr "{cps=30}Yo, no lo sé.. no se si deberia aceptar..."
+
+    show veronica normal at flip:
+        xpos -200
+        yalign -0.3
 
     a "{cps=30}Valeria, somos amigas. ¿Por qué crees que estoy aqui?"
 
     vr "{cps=25}..."
 
+    show veronica molesta at flip:
+        xpos -200
+        yalign -0.3
+
     a "{cps=30}Ademas no voy a dejar que pases la noche en un parque. Eso sí que no es negociable."
 
+    show valeria triste at flip:
+        xpos 900
+        yalign -0.3
+
+    show veronica normal at flip:
+        xpos -200
+        yalign -0.3
+
     vr "{cps=30}Je.. gracias."
+
+    show valeria normal at flip:
+        xpos 900
+        yalign -0.3
 
     vr "{cps=30}De verdad. Muchas gracias..."
 
@@ -2427,54 +2731,135 @@ label nivel_3:
 
     v "{cps=25}Despues de todo lo que habia pasado.. ella fue la unica que me extendio la mano para ayudarme.."
 
-    v "{cps=25}No se que hubiera hecho sin ella..."
+    v "{cps=25}Perdón Veronica, jamas podre pagarte todo lo que has hecho por mi.."
 
-    v "{cps=25}Perdón ______, jamas podre pagarte todo lo que has hecho por mi.."
+    scene black with fade
 
     "{cps=30}Los sueños de Valeria fueron interrumpidos por una voz que la llamaba."
+
+    if biblioteca == True:
+
+        scene bg valeria_biblioteca dormida with circleirisin
+
+        a "{cps=30}¿Valeria?"
+
+        a "{cps=30}¡Valeria!"
+
+        scene bg valeria_biblioteca cansada
+
+        a "{cps=30}Oye, despierta. ¿Qué haces durmiendo aqui?"
+
+        v "{cps=30}¿Mmm...?"
+
+        v "{cps=30}¿Eh..? ¿Donde..?"
+
+        a "{cps=30}En la biblioteca de la univercidad, dormida sobre tu cuaderno. ¿Qué otra cosa podría ser?"
+
+        v "{cps=30}Ah.. ¿Qué hora es?"
+
+        scene bg biblioteca with dissolve
+
+    else:
     
-    # Valeria abre los ojos
+        scene bg vision_valeria veronica with circleirisin
 
-    a "{cps=30}¿Valeria?"
+        a "{cps=30}¿Valeria?"
 
-    a "{cps=30}¡Valeria!"
+        a "{cps=30}¡Valeria!"
 
-    a "{cps=30}Oye, despierta. ¿Qué haces durmiendo aqui?"
+        a "{cps=30}Oye, despierta. ¿Qué haces durmiendo aqui?"
 
-    a "{cps=30}¿Acaso quieres resfriarte?"
+        a "{cps=30}¿Acaso quieres resfriarte?"
 
-    v "{cps=30}¿Mmm...?"
+        v "{cps=30}¿Mmm...?"
 
-    v "{cps=30}¿Eh..? ¿Donde..?"
+        v "{cps=30}¿Eh..? ¿Donde..?"
 
-    a "{cps=30}En el patio de la univercidad, dormida en una banca. ¿Qué otra cosa podría ser?"
+        a "{cps=30}En el patio de la univercidad, dormida en una banca. ¿Qué otra cosa podría ser?"
 
-    v "{cps=30}Ah.. ¿Qué hora es?"
+        v "{cps=30}Ah.. ¿Qué hora es?"
+
+        scene bg fondo_parque with dissolve
+    
+    show valeria_bebe tarde at flip:
+        xpos 900
+        yalign -0.3
+    with dissolve
+
+    show veronica molesta at flip:
+        xpos 0
+        yalign -0.3
+    with dissolve
 
     a "{cps=30}Las 8:43, ya es bastante tarde."
 
+    show veronica preocupada at flip:
+        xpos 0
+        yalign -0.3
+
     a "{cps=30}¿Te encuentras bien? ¿No has estado durmiendo bien?"
 
+    show valeria_bebe normal at flip:
+        xpos 900
+        yalign -0.3
+
     v "{cps=30}Si.. solamente estaba un poco cansada."
+
+    show veronica molesta2 at flip:
+        xpos 0
+        yalign -0.3
 
     a "{cps=30}¿Un poco? estabas completamente dormida, te llame como 7 veces."
 
     v "{cps=30}¿En serio? jaja.. espera."
 
+    show valeria_bebe preocupada at flip:
+        xpos 900
+        yalign -0.3
+
     v "{cps=30}¿Dijiste 8:40?"
 
+    show veronica molesta at flip:
+        xpos 0
+        yalign -0.3
+
     a "{cps=30}De hecho 8:43 pero.."
+
+    show valeria_bebe tarde at flip:
+        xpos 900
+        yalign -0.3
 
     v "{cps=30}Hay no, ya es tarde, mi clase empesaba a las 8:30."
 
     v "{cps=30}Gracias por despertarme, pero ya debo irme."
 
+    show valeria_bebe tarde at move(900, -0.3, 2.0, 2200)
+
     v "{cps=30}Nos vemos en casa. ¡Adios!"
+
+    show veronica normal at flip, move(0, -0.3, 2.0, 400)
 
     a "{cps=30}Ah si claro, adios.."
 
+    show veronica preocupada at flip:
+        xpos 400
+        yalign -0.3
+
     a "{cps=30}Hmm, eres todo un caso."
 
+    show veronica molesta at flip:
+        xpos 400
+        yalign -0.3
+
+    a "{cps=30}¿Qué hare contigo?"
+
+    scene bg fondo_marco with fade
+
+    call screen separador_nivel(
+        "04",
+        "Preparacion",
+        "Los ultimos pasos"
+    )
 
     scene black with fade
 
