@@ -37,3 +37,19 @@ default contarNoticia = 1
 #
 
 default eleccionPasado = 1
+
+#
+# VARIABLES ESPECIALES CAPITULO 4
+#
+
+default estudioConHerneztinoC4 = False
+default apuntesHerneztinoC4 = False
+default apoyoVeronicaC4 = False
+default habloConMamaC4 = False
+
+#
+# VARIABLES ESPECIALES CAPITULO 5
+#
+
+default apoyoVeronicaExamen = False
+default aproboMateria = False

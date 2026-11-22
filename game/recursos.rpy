@@ -54,6 +54,10 @@ image bg valeria_biblioteca dormida = im.Scale("images/backgrounds/biblioteca/do
 
 image bg valeria_biblioteca estudiando = im.Scale("images/backgrounds/biblioteca/estudiando.png", 1920, 1080)
 
+image bg valeria_biblioteca alegre = im.Scale("images/backgrounds/biblioteca/estudiando_alegre.png", 1920, 1080)
+
+image bg valeria_biblioteca preocupada = im.Scale("images/backgrounds/biblioteca/estudiando_preocupada.png", 1920, 1080)
+
 image bg raul_biblioteca dormido = im.Scale("images/backgrounds/biblioteca/raul_dormido.png", 1920, 1080)
 
 image bg raul_biblioteca avergonzado = im.Scale("images/backgrounds/biblioteca/raul_avergonzado.png", 1920, 1080)
@@ -82,6 +86,12 @@ image bg puerta_madre = im.Scale("images/backgrounds/casa_padres/puerta_madre.pn
 
 image bg sala_vcasa = im.Scale("images/backgrounds/vcasa/sala_vcasa.png", 1920, 1080)
 
+image bg sala_vcasa dia = im.Scale("images/backgrounds/vcasa/sala_vcasad.png", 1920, 1080)
+
+image bg sala_vcasa despierta = im.Scale("images/backgrounds/vcasa/vcasad_despierta.png", 1920, 1080)
+
+image bg sala_vcasa celular = im.Scale("images/backgrounds/vcasa/vcasad_celular.png", 1920, 1080)
+
 # 
 # VALERIA + BEBÉ
 # 
@@ -107,6 +117,10 @@ image herneztino normal = "images/herneztino/normal.png"
 
 image herneztino amable = "images/herneztino/amable.png"
 
+image herneztino mcabeza = "images/herneztino/mcabeza.png"
+
+image herneztino preocupado = "images/herneztino/preocupado.png"
+
 # 
 # VALERIA
 # 
@@ -124,6 +138,28 @@ image valeria enojada = "images/valeria/enojada.png"
 image valeria sorprendida = "images/valeria/sorprendida.png"
 
 image valeria burlona = "images/valeria/burlona.png"
+
+# 
+# VALERIA
+# 
+
+image valeria_celular normal = "images/valeria_celular/normal.png"
+
+image valeria_celular duda = "images/valeria_celular/duda.png"
+
+image valeria_celular preocupada = "images/valeria_celular/preocupada.png"
+
+image valeria_celular preocupada2 = "images/valeria_celular/preocupada2.png"
+
+image valeria_celular explicando = "images/valeria_celular/explicando.png"
+
+image valeria_celular insegura = "images/valeria_celular/insegura.png"
+
+image valeria_celular aliviada = "images/valeria_celular/aliviada.png"
+
+image valeria_celular aliviada_celular = "images/valeria_celular/alivio_celular.png"
+
+image valeria_celular negativo = "images/valeria_celular/negativo.png"
 
 # 
 # RAUL
