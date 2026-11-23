@@ -20,7 +20,7 @@ default resClase = 4
 default biblioteca = False
 
 #
-# VARIABLES MINIJUEGO
+# VARIABLES MINIJUEGO 1
 #
 
 default resumenTerminado = False
