@@ -16,6 +16,8 @@ image bg fondo_casa = im.Scale("images/backgrounds/vcasa/casa.png", 1920, 1080)
 
 image bg fondo_universidad = im.Scale("images/backgrounds/universidad.png", 1920, 1080)
 
+image bg fondo_universidad calificaciones = im.Scale("images/backgrounds/calificaciones.png", 1920, 1080)
+
 image bg fondo_casa_padres = im.Scale("images/backgrounds/casa_padres/casa_padres.png", 1920, 1080)
 
 image bg fondo_parque = im.Scale("images/backgrounds/parque/parque.png", 1920, 1080)
@@ -92,6 +94,32 @@ image bg sala_vcasa despierta = im.Scale("images/backgrounds/vcasa/vcasad_despie
 
 image bg sala_vcasa celular = im.Scale("images/backgrounds/vcasa/vcasad_celular.png", 1920, 1080)
 
+#
+# VALERIA EXAMEN
+#
+
+image bg examen_valeria preocupada = im.Scale("images/backgrounds/examen/valeria/preocupada.png", 1920, 1080)
+
+image bg examen_valeria concentrada = im.Scale("images/backgrounds/examen/valeria/concentrada.png", 1920, 1080)
+
+image bg examen_valeria estres = im.Scale("images/backgrounds/examen/valeria/estres.png", 1920, 1080)
+
+image bg examen_valeria feliz = im.Scale("images/backgrounds/examen/valeria/feliz.png", 1920, 1080)
+
+image bg examen_valeria preocupada_bebe = im.Scale("images/backgrounds/examen/valeria/preocupada_bebe.png", 1920, 1080)
+
+image bg examen_valeriab feliz = im.Scale("images/backgrounds/examen/valeria_bebe/feliz.png", 1920, 1080)
+
+image bg examen_valeriab feliz_bebe = im.Scale("images/backgrounds/examen/valeria_bebe/feliz_bebe.png", 1920, 1080)
+
+image bg examen_valeriab preocupada = im.Scale("images/backgrounds/examen/valeria_bebe/preocupada.png", 1920, 1080)
+
+image bg examen_valeriab estres = im.Scale("images/backgrounds/examen/valeria_bebe/estres.png", 1920, 1080)
+
+image bg examen_valeriab concentrada = im.Scale("images/backgrounds/examen/valeria_bebe/concentrada.png", 1920, 1080)
+
+image bg examen_valeriab bebe_llorando = im.Scale("images/backgrounds/examen/valeria_bebe/bebe_llorando.png", 1920, 1080)
+
 # 
 # VALERIA + BEBÉ
 # 
@@ -107,7 +135,17 @@ image valeria_bebe preocupada = "images/valeria_bebe/preocupada.png"
 
 image valeria_bebe tarde = "images/valeria_bebe/tarde.png"
 
-#image valeria_bebe incomoda = "images/valeria_bebe/incomoda.png"
+image valeria_bebe carga_llorando = "images/valeria_bebe/carga_llorando.png"
+
+image valeria_bebe carga_calma = "images/valeria_bebe/carga_calma.png"
+
+image valeria_bebe carga_alivio = "images/valeria_bebe/carga_alivio.png"
+
+image valeria_bebe sonrie = "images/valeria_bebe/sonrie.png"
+
+image valeria_bebe exito = "images/valeria_bebe/exito.png"
+
+image valeria_bebe incomoda = "images/valeria_bebe/incomoda.png"
 
 #
 # HERNEZTINO
@@ -133,11 +171,15 @@ image valeria preocupada = "images/valeria/preocupada.png"
 
 image valeria feliz = "images/valeria/feliz.png"
 
+image valeria feliz2 = "images/valeria/feliz2.png"
+
 image valeria enojada = "images/valeria/enojada.png"
 
 image valeria sorprendida = "images/valeria/sorprendida.png"
 
 image valeria burlona = "images/valeria/burlona.png"
+
+image valeria sonrie = "images/valeria/sonrie.png"
 
 # 
 # VALERIA
@@ -180,6 +222,8 @@ image raul enojado = "images/raul/enojado.png"
 #
 
 image veronica normal = "images/veronica/normal.png"
+
+image veronica feliz = "images/veronica/feliz.png"
 
 image veronica preocupada = "images/veronica/preocupada.png"
 
@@ -226,6 +270,16 @@ image madre enojada = "images/madre/enojada.png"
 image madre triste = "images/madre/triste.png"
 
 image madre sorprendida = "images/madre/sorprendida.png"
+
+#
+# MAESTRO
+#
+
+image maestro normal = "images/maestro/normal.png"
+
+image maestro explicando = "images/maestro/explicando.png"
+
+image maestro notas = "images/maestro/notas.png"
 
 # 
 # FLASHBACKS

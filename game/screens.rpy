@@ -1672,6 +1672,59 @@ style slider_slider:
     variant "small"
     xsize 900
 
+
+#
+# PANTALLA DE FINALIZACION
+#
+
+screen pantalla_final(nombre_final):
+
+    modal True
+
+    add "bg fondo_marco"
+
+    vbox:
+        xalign 0.5
+        yalign 0.4
+        spacing 25
+
+        text "Entre Apuntes y Aventuras":
+            size 70
+            color "#FFFFFF"
+            xalign 0.5
+            text_align 0.5
+
+        text "Gracias por Jugar":
+            size 50
+            color "#D8B88C"
+            xalign 0.5
+            text_align 0.5
+
+        null height 20
+
+        text "Final: [nombre_final]":
+            size 40
+            color "#D0D0D0"
+            xalign 0.5
+            text_align 0.5
+
+    #
+    # BOTONES
+    #
+
+    textbutton "Volver a Jugar":
+        xalign 0.35
+        yalign 0.85
+        text_size 35
+        action Function(renpy.full_restart, transition=None, label="start")
+
+    textbutton "Salir":
+        xalign 0.65
+        yalign 0.85
+        text_size 35
+        action MainMenu(confirm=False)
+
+
 screen separador_nivel(numero, titulo, frase):
 
     modal True
@@ -1795,3 +1848,5 @@ init python:
 
     def agregar_mensaje(remitente, mensaje):
         mensajes_chat.append((remitente, mensaje))
+
+        

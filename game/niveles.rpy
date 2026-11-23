@@ -163,7 +163,9 @@ label nivel_1:
         show valeria_bebe tarde :
             linear 2.5 xalign 2.5 yalign -3.0
         with dissolve
+        
         "{cps=30}Valeria salio rapidamente de su casa camino a la escuela y logro calmarse un poco."
+    
     else:
         v "{cps=30}Ahora sí, podemos irnos."
 
@@ -4199,6 +4201,10 @@ label nivel_5:
     v "{cps=30}¿Verdad, bebé?"
     
     b "{cps=30}Mmm... ah."
+
+    show valeria_bebe normal:
+        xpos 200
+        yalign -0.3
     
     v "{cps=30}Jeje, buenos días para ti también."
     
@@ -4213,21 +4219,176 @@ label nivel_5:
         $ estres += 1
     
         v "{cps=30}Bien, tengo mis apuntes, lápiz, borrador..."
+
+        show valeria_bebe preocupada:
+            xpos 200
+            yalign -0.3
     
         v "{cps=30}¿Y el chupón?"
     
         v "{cps=30}..."
+
+        show valeria_bebe tarde:
+            xpos 200
+            yalign -0.3
     
         v "{cps=30}Ay, no..."
     
         v "{cps=30}¡Otra vez olvidé revisar bien la pañalera!"
+
+        show valeria_bebe triste:
+            xpos 200
+            yalign -0.3
     
         b "{cps=30}Snif... snif..."
     
         v "{cps=30}No, no, bebé, espera un momento."
     
         v "{cps=30}Tal vez pueda encontrarlo antes de salir..."
-        # PENDIENTE: Posibilidad de encontrar el chupon.
+        
+        #
+        # ELECCION - BUSCAR EL CHUPON
+        #
+
+        menu:
+
+            "Buscar el chupón antes de salir.":
+
+                v "{cps=30}Estoy segura de que tiene que estar por aquí..."
+
+                v "{cps=30}A ver... ¿Dónde lo dejé?"
+
+                if cuidado_bebe >= 2:
+
+                    v "{cps=30}¡Ah, espera!"
+
+                    show valeria_bebe tarde at flip, move(200, -0.3, 1.5, -860)
+
+                    v "{cps=30}¡Creo que dejé uno de repuesto en la pañalera!"
+
+                    pause 1.0
+
+                    v "{cps=30}¡Aquí está!"
+
+                    $ cuidado_bebe += 1
+                    $ estres -= 1
+
+                    show valeria_bebe feliz at move(-860, -0.3, 2.0, 200)
+
+                    v "{cps=30}Jeje, menos mal que había guardado otro."
+
+                    v "{cps=30}¿Ves, bebé? Ya está todo bien."
+
+                    b "{cps=30}Mmm..."
+
+                    show valeria_bebe normal:
+                        xpos 200
+                        yalign -0.3
+
+                    v "{cps=30}Ahora sí, tenemos que irnos."
+
+                    show valeria_bebe normal at move(200, -0.3, 2.0, -860)
+
+                    scene bg fondo_universidad with fade
+
+                    show valeria_bebe normal at move(-400, -0.3, 2.0, 700) with dissolve
+
+                    v "{cps=30}Menos mal no llegue tan tarde"
+
+                    v "{cps=30}Aun asi debo darme prisa. Andando."
+
+                else:
+
+                    v "{cps=30}¿Dónde está...?"
+
+                    v "{cps=30}Estoy segura de que lo había visto por aquí..."
+
+                    v "{cps=30}..."
+
+                    show valeria_bebe tarde:
+                        xpos 200
+                        yalign -0.3
+
+                    v "{cps=30}No puede ser, no lo encuentro..."
+
+                    $ estres += 1
+
+                    show valeria_bebe llorando:
+                        xpos 200
+                        yalign -0.3
+
+                    b "{cps=30}¡Waaa!"
+
+                    v "{cps=30}Ay, bebé, espera..."
+
+                    v "{cps=30}No podemos seguir buscando, se nos está haciendo tarde."
+
+                    v "{cps=30}Tendré que encontrar otra manera de tranquilizarte."
+
+                    show valeria_bebe triste at move(200, -0.3, 1.5, -860)
+
+                    scene bg fondo_universidad with fade
+
+                    show valeria_bebe normal at move(-400, -0.3, 2.0, 700) with dissolve
+
+                    v "{cps=30}Menos mal no llegue tan tarde"
+
+                    v "{cps=30}Aun asi debo darme prisa. Andando."
+
+            "Intentar tranquilizar al bebé sin el chupón.":
+
+                v "{cps=30}No creo que tengamos tiempo para seguir buscando..."
+
+                show valeria_bebe carga_llorando:
+                    xpos 200
+                    yalign -0.3
+
+                v "{cps=30}Ven aquí, cariño."
+
+                show valeria_bebe carga_calma:
+                    xpos 200
+                    yalign -0.3
+
+                b "{cps=30}Snif... snif..."
+
+                v "{cps=30}Shhh... tranquilo, aquí estoy."
+
+                v "{cps=30}Ya sé, ya sé..."
+
+                v "{cps=30}Mamá también está un poco nerviosa."
+
+                v "{cps=30}Pero tenemos que calmarnos, ¿sí?"
+
+                b "{cps=30}Mmm..."
+
+                v "{cps=30}Eso es..."
+
+                show valeria_bebe carga_alivio:
+                    xpos 200
+                    yalign -0.3
+
+                v "{cps=30}Muy bien, mi amor."
+
+                $ cuidado_bebe += 1
+                $ estres -= 1
+
+                v "{cps=30}Jeje, parece que ya estás más tranquilo."
+
+                show valeria_bebe normal:
+                    xpos 200
+                    yalign -0.3
+
+                v "{cps=30}Ahora tenemos que irnos antes de que sea demasiado tarde."
+
+                show valeria_bebe normal at move(200, -0.3, 1.5, -860)
+
+                scene bg fondo_universidad with fade
+
+                show valeria_bebe normal at move(-400, -0.3, 2.0, 700) with dissolve
+
+                v "{cps=30}Menos mal no llegue tan tarde"
+
+                v "{cps=30}Aun asi debo darme prisa. Andando."
 
     elif objBebe == True:
     
@@ -4240,15 +4401,233 @@ label nivel_5:
         v "{cps=30}Ahora solo necesito mi lápiz y..."
     
         v "{cps=30}..."
+
+        show valeria_bebe preocupada:
+            xpos 200
+            yalign -0.3
     
         v "{cps=30}¿Dónde está mi lápiz?"
     
         v "{cps=30}No puede ser..."
     
+        show valeria_bebe tarde:
+            xpos 200
+            yalign -0.3
+
         v "{cps=30}Justo hoy tenía que olvidar algo..."
     
-        pv "{cps=30}Tendré que conseguir uno antes de que comience el examen..."
-        # PENDIENTE: Posibilidad de conseguir un lapiz.
+        pv "{cps=30}Tengo que conseguir uno antes de que comience el examen..."
+        
+        #
+        # ELECCION - CONSEGUIR UN LAPIZ
+        #
+
+        menu:
+
+            "Buscar un lápiz de repuesto en casa.":
+
+                show valeria_bebe triste:
+                    xpos 200
+                    yalign -0.3
+
+                v "{cps=30}Tal vez todavía tenga alguno guardado..."
+
+                show valeria_bebe triste :
+                    linear 1.5 xalign 2.5 yalign -3.0
+
+                v "{cps=30}A ver, creo que había dejado uno en el escritorio."
+
+                v "{cps=30}..."
+
+                v "{cps=30}¡Aquí está!"
+
+                show valeria_bebe normal :
+                    linear 1.5 xpos 200 yalign -0.3
+
+                v "{cps=30}Aunque..."
+
+                v "{cps=30}Está un poco gastado."
+
+                v "{cps=30}Bueno, todavía puede servir."
+
+                $ estres += 1
+
+                show valeria_bebe tarde:
+                    xpos 200
+                    yalign -0.3
+
+                v "{cps=30}¡Ay, no! ¡Ya perdí demasiado tiempo!"
+
+                v "{cps=30}¡Tenemos que salir ahora!"
+
+                show valeria_bebe tarde at flip, move(200, -0.3, 1.5, -860)
+
+                scene bg fondo_universidad with fade
+
+                show valeria_bebe normal at move(-400, -0.3, 2.0, 700) with dissolve
+
+                v "{cps=30}Menos mal no llegue tan tarde"
+
+                v "{cps=30}Aun asi debo darme prisa. Andando."
+
+            "Conseguir un lápiz en la universidad.":
+
+                v "{cps=30}No tengo tiempo para buscar otro."
+
+                show valeria_bebe triste:
+                    xpos 200
+                    yalign -0.3
+
+                v "{cps=30}Supongo que tendré que pedir uno prestado."
+
+                v "{cps=30}Espero encontrar a alguien antes de que comience el examen..."
+
+                show valeria_bebe normal at move(200, -0.3, 1.5, -860)
+
+                #
+                # AL LLEGAR A LA UNIVERSIDAD
+                #
+
+                scene bg fondo_universidad with dissolve
+
+                show valeria_bebe normal at move(0, -0.3, 1.5, 900) with dissolve
+
+                v "{cps=30}Bien... todavía tengo unos minutos."
+
+                show valeria_bebe tarde:
+                    xpos 900
+                    yalign -0.3
+
+                show herneztino normal at move(-400, -0.3, 1.0, 200) with dissolve
+
+                v "{cps=30}¿A quién podría pedirle un lápiz?"
+
+                show valeria_bebe tarde at flip:
+                    xpos 900
+                    yalign -0.3
+
+                v "{cps=30}Ah, ¡Herneztino!"
+
+                show valeria_bebe normal at flip, move(900, -0.3, 1.5, 700) with dissolve
+
+                v "{cps=30}¡Herneztino! ¡Espera!"
+
+                c "{cps=30}¿Eh? ¡Hola, Valeria!"
+
+                c "{cps=30}¿Qué sucede? Pareces un poco apresurada."
+
+                show valeria_bebe triste at flip:
+                    xpos 700
+                    yalign -0.3
+
+                v "{cps=30}Es que... olvidé mi lápiz en casa."
+
+                v "{cps=30}¿No tendrás uno que puedas prestarme?"
+
+                if estudioConHerneztinoC4 == True:
+
+                    c "{cps=30}¿Un lápiz?"
+
+                    show herneztino amable:
+                        xpos 200
+                        yalign -0.3
+
+                    c "{cps=30}Jaja, después de todo lo que estudiamos, ¿olvidaste traer uno?"
+
+                    show valeria_bebe tarde at flip:
+                        xpos 700
+                        yalign -0.3
+
+                    v "{cps=30}¡No te burles!"
+
+                    c "{cps=30}Jajaja, perdón, perdón."
+
+                    show herneztino normal:
+                        xpos 200
+                        yalign -0.3
+
+                    c "{cps=30}Creo que tengo uno de repuesto."
+
+                    v "{cps=30}¿En serio?"
+
+                    show herneztino normal at move(200, -0.3, 1.0, 500) with dissolve
+
+                    c "{cps=30}Sí, aquí tienes."
+
+                    show valeria_bebe feliz at flip:
+                        xpos 700
+                        yalign -0.3
+
+                    v "{cps=30}¡Muchas gracias!"
+
+                    c "{cps=30}No hay problema."
+
+                    show herneztino amable:
+                        xpos 500
+                        yalign -0.3
+
+                    c "{cps=30}Después de estudiar tanto, sería una pena que no pudieras presentar el examen por un lápiz."
+
+                    show valeria_bebe normal at flip:
+                        xpos 700
+                        yalign -0.3
+
+
+                    v "{cps=30}Jeje, tienes razón."
+
+                else:
+
+                    c "{cps=30}Mmm... déjame revisar."
+
+                    show valeria_bebe tarde at flip:
+                        xpos 700
+                        yalign -0.3
+
+                    v "{cps=30}Por favor..."
+
+                    show herneztino amable:
+                        xpos 200
+                        yalign -0.3
+
+                    c "{cps=30}Ah, ¡aquí tengo uno!"
+
+                    show herneztino normal at move(200, -0.3, 1.0, 500) with dissolve
+
+                    c "{cps=30}Puedes quedártelo durante el examen."
+
+                    show valeria_bebe feliz at flip:
+                        xpos 700
+                        yalign -0.3
+
+                    v "{cps=30}¿De verdad? ¡Muchas gracias!"
+
+                    show herneztino amable:
+                        xpos 500
+                        yalign -0.3
+
+                    c "{cps=30}Jaja, no hay de qué."
+
+                    c "{cps=30}Solo asegúrate de devolverlo después."
+
+                    show valeria_bebe normal at flip:
+                        xpos 700
+                        yalign -0.3
+
+                    v "{cps=30}¡Claro que sí!"
+
+                $ estres -= 1
+
+                pv "{cps=30}Menos mal que logré conseguir uno..."
+
+                pv "{cps=30}Ahora solo necesito concentrarme en el examen."
+
+                c "{cps=30}Bueno ya tengo que irme, mucha suerte."
+
+                show herneztino normal at move(500, -0.3, 2.0, 1600) with dissolve
+
+                v "{cps=30}Ah, si igualmente y gracias de nuevo."
+
+                v "{cps=30}Bien, ya solo queda el examen."
 
     elif objAmbos == True:
     
@@ -4259,46 +4638,136 @@ label nivel_5:
         v "{cps=30}Por lo menos hoy no olvidé nada."
     
         v "{cps=30}Aunque..."
+
+        show valeria_bebe preocupada:
+            xpos 200
+            yalign -0.3
     
         v "{cps=30}¡Ya es tardísimo!"
     
         v "{cps=30}Ay no, no, no..."
+
+        show valeria_bebe tarde:
+            xpos 200
+            yalign -0.3
     
         v "{cps=30}¡Tenemos que irnos ahora!"
+
+        show valeria_bebe tarde at flip, move(200, -0.3, 1.5, -860)
+
+        scene bg fondo_universidad with fade
+
+        show valeria_bebe normal at move(-400, -0.3, 2.0, 700) with dissolve
+
+        v "{cps=30}Menos mal no llegue tan tarde"
+
+        v "{cps=30}Aun asi debo darme prisa. Andando."
 
     #
     # ESCENA 2 - ANTES DE ENTRAR
     #
 
+    show valeria_bebe normal at move(700, -0.3, 2.0, 900)
+
+    a "{cps=30}¡Valeria!"
+
+    show veronica normal at flip, move(-400, -0.3, 1.5, 300) with dissolve
+
+    show valeria_bebe normal at flip:
+        xpos 900
+        yalign -0.3
+
+    v "{cps=30}!!"
+
+    a "{cps=30}Que bueno verte."
+
+    a "{cps=30}Escuche que saliste algo tarde y me preocupé."
+
+    show valeria_bebe tarde at flip:
+        xpos 900
+        yalign -0.3
+
+    v "{cps=30}Ah si, perdona. Es que me quede dormida."
+
+    show veronica molesta at flip:
+        xpos 300
+        yalign -0.3
+
+    a "{cps=30}Pues claro, que mas podia ser ¿no?"
+
+    show valeria_bebe normal at flip:
+        xpos 900
+        yalign -0.3
+
+    v "{cps=30}Si jaja."
+
+    show veronica normal at flip:
+        xpos 300
+        yalign -0.3
+
     a "{cps=30}Oye, Valeria."
     
     v "{cps=30}¿Mmm?"
+
+    show veronica preocupada at flip:
+        xpos 300
+        yalign -0.3
     
     a "{cps=30}¿Estás nerviosa?"
+
+    show valeria_bebe triste at flip:
+        xpos 900
+        yalign -0.3
     
     v "{cps=30}¿Tanto se me nota?"
     
     a "{cps=30}Bastante."
     
-    v "{cps=30}Je..."
-    
     a "{cps=30}¿Preparada?"
+
+    show veronica triste at flip:
+        xpos 300
+        yalign -0.3
     
     v "{cps=30}Creo que sí..."
+
+    show valeria_bebe tarde at flip:
+        xpos 900
+        yalign -0.3
     
     v "{cps=30}Aunque siento que se me va a olvidar todo en cuanto vea las preguntas."
+
+    show veronica normal at flip:
+        xpos 300
+        yalign -0.3
     
     a "{cps=30}Jaja, eso nos pasa a todos."
     
     v "{cps=30}No es gracioso..."
     
     a "{cps=30}Bueno, bueno."
+
+    show veronica triste at flip:
+        xpos 300
+        yalign -0.3
     
     a "{cps=30}Escucha, no tiene caso que te pases estos últimos minutos imaginando todo lo que podría salir mal."
+
+    show valeria_bebe triste at flip:
+        xpos 900
+        yalign -0.3
     
     v "{cps=30}Lo sé..."
+
+    show veronica normal at flip:
+        xpos 300
+        yalign -0.3
     
     a "{cps=30}Además, puedo quedarme con el bebé mientras presentas el examen."
+
+    show valeria_bebe tarde at flip:
+        xpos 900
+        yalign -0.3
     
     v "{cps=30}¿Estás segura? ¿No tenías cosas que hacer?"
     
@@ -4307,10 +4776,22 @@ label nivel_5:
     v "{cps=30}Verónica..."
     
     a "{cps=30}¿Qué?"
+
+    show valeria_bebe normal at flip:
+        xpos 900
+        yalign -0.3
     
     v "{cps=30}Gracias."
+
+    show veronica avergonzada at flip:
+        xpos 300
+        yalign -0.3
     
     a "{cps=30}Jaja, anda, todavía no has presentado el examen."
+
+    show veronica normal at flip:
+        xpos 300
+        yalign -0.3
     
     a "{cps=30}Ya tendrás tiempo de agradecerme cuando termines."
 
@@ -4325,21 +4806,36 @@ label nivel_5:
             $ apoyoVeronicaExamen = True
             $ cuidado_bebe += 1
             $ estres -= 1
-
         
             v "{cps=30}Está bien... ¿podrías cuidarlo durante el examen?"
         
             a "{cps=30}Claro."
         
             v "{cps=30}No sé qué haría sin ti."
+
+            show veronica molesta at flip:
+                xpos 300
+                yalign -0.3
         
             a "{cps=30}Probablemente llegar tarde a todos lados."
+
+            show valeria_bebe feliz at flip:
+                xpos 900
+                yalign -0.3
         
             v "{cps=30}¡Verónica!"
+
+            show veronica normal at flip:
+                xpos 300
+                yalign -0.3
         
             a "{cps=30}Jajaja, es broma."
         
             a "{cps=30}Ahora entra, que vas a terminar llegando tarde de verdad."
+
+            show valeria_bebe normal at flip:
+                xpos 900
+                yalign -0.3
         
             v "{cps=30}Jaja, está bien. Nos vemos al terminar."
 
@@ -4349,59 +4845,127 @@ label nivel_5:
             $ cuidado_bebe += 1
             $ estres -= 2
 
+            show valeria_bebe tarde at flip:
+                xpos 900
+                yalign -0.3
+
             v "{cps=30}Verónica... ¿puedo decirte algo?"
             
             a "{cps=30}Claro."
+
+            show valeria_bebe triste at flip:
+                xpos 900
+                yalign -0.3
             
             v "{cps=30}Tengo miedo."
             
             a "{cps=30}Lo sé."
             
             v "{cps=30}No es solamente el examen..."
+
+            show valeria_bebe tarde at flip:
+                xpos 900
+                yalign -0.3
             
             v "{cps=30}Siento que si fracaso esta vez, habré desperdiciado todo lo que he hecho."
             
+            show veronica preocupada at flip:
+                xpos 300
+                yalign -0.3
+
             a "{cps=30}Valeria..."
+
+            show valeria_bebe triste at flip:
+                xpos 900
+                yalign -0.3
             
             v "{cps=30}No quiero volver a empezar..."
+
+            show veronica molesta at flip:
+                xpos 300
+                yalign -0.3
             
             a "{cps=30}Escúchame."
             
             a "{cps=30}Sé cuánto significa esto para ti."
+
+            show veronica molesta2 at flip:
+                xpos 300
+                yalign -0.3
             
             a "{cps=30}Pero un examen no va a decidir cuánto vales."
             
             v "{cps=30}..."
+
+            show veronica molesta at flip:
+                xpos 300
+                yalign -0.3
             
             a "{cps=30}Y aunque no salga como esperas, tendrás que pensar qué hacer después."
             
+            show veronica normal at flip:
+                xpos 300
+                yalign -0.3
+
             a "{cps=30}No significa que todo termine aquí."
+
+            show valeria_bebe tarde at flip:
+                xpos 900
+                yalign -0.3
             
             v "{cps=30}Gracias..."
             
             a "{cps=30}Ahora ve y haz lo que puedas."
+
+            show valeria_bebe normal at flip:
+                xpos 900
+                yalign -0.3
             
             v "{cps=30}Sí..."
             
             v "{cps=30}Lo intentaré."
 
-        "Concentrarse únicamente en aprobar.":
+        "Negar ayuda y concentrarse únicamente en aprobar.":
             
             $ estres += 1
+
+            show valeria_bebe triste at flip:
+                xpos 900
+                yalign -0.3
 
             v "{cps=30}No... no tengo tiempo para pensar en esas cosas."
 
             v "{cps=30}Tengo que aprobar."
 
+            show veronica molesta at flip:
+                xpos 300
+                yalign -0.3
+
             a "{cps=30}Valeria..."
+
+            show valeria_bebe tarde at flip:
+                xpos 900
+                yalign -0.3
 
             v "{cps=30}Si no lo hago, todo habrá sido para nada..."
 
+            show veronica molesta2 at flip:
+                xpos 300
+                yalign -0.3
+
             a "{cps=30}No digas eso."
+
+            show valeria_bebe triste at flip:
+                xpos 900
+                yalign -0.3
 
             v "{cps=30}Perdón..."
 
             v "{cps=30}Es solo que... necesito conseguirlo."
+
+            show veronica molesta at flip:
+                xpos 300
+                yalign -0.3
 
             a "{cps=30}Lo sé. Pero recuerda respirar y leer bien las preguntas."
 
@@ -4413,29 +4977,104 @@ label nivel_5:
     # ESCENA 3 - EL EXAMEN FINAL
     #
 
+    scene bg salon_clase with fade
+
+    show herneztino normal with dissolve:
+        xpos 900
+        yalign -0.3
+
+    if apoyoVeronicaExamen == True:
+
+        show valeria normal at move(-400, -0.3, 1.5, 200) with dissolve
+    
+    else:
+
+        show valeria_bebe normal at move(-400, -0.3, 1.5, 200) with dissolve
+
     c "{cps=30}¡Valeria! Hola."
 
     v "{cps=30}Hola..."
 
+    show herneztino amable:
+        xpos 900
+        yalign -0.3
+
     c "{cps=30}¿Lista para sufrir?"
 
+    if apoyoVeronicaExamen == True:
+
+        show valeria sonrie:
+            xpos 200
+            yalign -0.3
+    
+    else:
+
+        show valeria_bebe sonrie:
+            xpos 200
+            yalign -0.3
+
     v "{cps=30}Jaja... no me hagas reír."
+
+    show herneztino normal:
+        xpos 900
+        yalign -0.3
 
     c "{cps=30}Bueno, dicen que la risa ayuda a aliviar los nervios."
 
     v "{cps=30}Pues creo que voy a necesitar reírme bastante."
 
+    show herneztino amable:
+        xpos 900
+        yalign -0.3
+
     c "{cps=30}Jaja, suerte."
 
+    if apoyoVeronicaExamen == True:
+
+        show valeria normal:
+            xpos 200
+            yalign -0.3
+    
+    else:
+
+        show valeria_bebe normal:
+            xpos 200
+            yalign -0.3
+
     v "{cps=30}Igualmente."
+
+    show herneztino normal zorder 2:
+        linear 2.5 xalign 1.5 yalign -3.0
+
+    if apoyoVeronicaExamen == True:
+
+        show valeria normal zorder 2:
+            linear 2.5 xalign 1.0 yalign -3.0
+    
+    else:
+
+        show valeria_bebe normal zorder 2:
+            linear 2.5 xalign 1.0 yalign -3.0
+
+    pause 0.6
+
+    show maestro normal zorder 1 at move(1400, -0.3, 1.5, 1000) with dissolve 
 
     ms "{cps=30}Buenos días a todos."
 
     ms "{cps=30}Como saben, hoy realizaremos nuestra evaluación final."
 
+    show maestro explicando:
+        xpos 1000
+        yalign -0.3
+
     ms "{cps=30}Tendrán el tiempo indicado para responder todas las preguntas."
 
     ms "{cps=30}Lean cuidadosamente cada una antes de contestar."
+
+    show maestro normal:
+        xpos 1000
+        yalign -0.3
 
     ms "{cps=30}Y recuerden que esta evaluación representa su última oportunidad de recuperación para quienes ya agotaron las anteriores."
 
@@ -4445,10 +5084,17 @@ label nivel_5:
 
     #
     # PREPARACION SEGUN ESTUDIOS
-    # Valor provisional; ajusta el umbral a tu juego.
     #
 
     if estudios >= 3:
+
+        if apoyoVeronicaExamen == True:
+
+            scene bg examen_valeria feliz with fade
+        
+        else:
+
+            scene bg examen_valeriab feliz with fade
 
         pv "{cps=30}Bien... conozco este tema."
 
@@ -4457,6 +5103,14 @@ label nivel_5:
         pv "{cps=30}Si me concentro, creo que puedo resolverlo."
 
     else:
+
+        if apoyoVeronicaExamen == True:
+
+            scene bg examen_valeria preocupada
+        
+        else:
+
+            scene bg examen_valeriab preocupada
 
         pv "{cps=30}No..."
 
@@ -4468,10 +5122,17 @@ label nivel_5:
 
     #
     # CONCENTRACION SEGUN ESTRES
-    # Valor provisional; ajusta el umbral a tu juego.
     #
 
     if estres >= 3:
+
+        if apoyoVeronicaExamen == True:
+
+            scene bg examen_valeria estres
+        
+        else:
+
+            scene bg examen_valeriab estres
 
         pv "{cps=30}No puedo concentrarme..."
 
@@ -4483,48 +5144,101 @@ label nivel_5:
 
         pv "{cps=30}No puedo fallar..."
 
-    else:
-
-        pv "{cps=30}Está bien..."
-
-        pv "{cps=30}Primero las preguntas que conozco."
-
-        pv "{cps=30}Después regresaré a las más difíciles."
-
-        pv "{cps=30}Todavía tengo tiempo..."
-
     #
     # ORGANIZACION DEL CUIDADO DEL BEBE
-    # Valor provisional; ajusta el umbral a tu juego.
     #
 
-    if cuidado_bebe >= 2:
+    if apoyoVeronicaExamen == True:
 
-        pv "{cps=30}El bebé está con Verónica y dejé preparadas sus cosas."
+        if cuidado_bebe >= 2:
 
-        pv "{cps=30}Sé que estará bien mientras termino."
+            scene bg examen_valeria concentrada
 
-        pv "{cps=30}Ahora tengo que concentrarme."
+            pv "{cps=30}El bebé está con Verónica..."
+
+            pv "{cps=30}Dejé preparadas todas sus cosas antes de salir."
+
+            pv "{cps=30}Seguramente estará bien mientras termino el examen."
+
+            pv "{cps=30}Ahora solo tengo que concentrarme."
+
+        else:
+
+            scene bg examen_valeria preocupada_bebe
+
+            pv "{cps=30}Espero que Verónica no esté teniendo problemas con el bebé..."
+
+            pv "{cps=30}Con tantas prisas, no estoy segura de haber preparado todo lo que necesitaba."
+
+            pv "{cps=30}¿Y si se me olvidó algo importante...?"
+
+            scene bg examen_valeria concentrada
+
+            pv "{cps=30}No, no puedo distraerme pensando en eso."
+
+            pv "{cps=30}Verónica sabe cuidarlo. Tengo que confiar en ella."
 
     else:
 
-        pv "{cps=30}¿Habré dejado todo lo que necesitaba en la pañalera?"
+        if cuidado_bebe >= 2:
 
-        pv "{cps=30}Espero que no se me haya olvidado nada..."
+            scene bg examen_valeriab feliz_bebe
 
-        pv "{cps=30}No, ahora no puedo revisar eso."
+            pv "{cps=30}Parece que por fin te quedaste tranquilo, bebé..."
 
-        pv "{cps=30}Tengo que confiar en que Verónica me avisará si necesita algo."
+            pv "{cps=30}Menos mal que preparé todas tus cosas antes de salir."
+
+            pv "{cps=30}Por favor, quédate así un poquito más..."
+
+            b "{cps=30}Mmm..."
+
+            pv "{cps=30}Jeje, eso es..."
+
+            scene bg examen_valeriab feliz
+
+            pv "{cps=30}Ahora mamá tiene que concentrarse en su examen."
+
+            pv "{cps=30}Solo necesito aprovechar estos momentos de tranquilidad."
+
+        else:
+
+            b "{cps=30}Snif... snif..."
+
+            scene bg examen_valeriab bebe_llorando
+
+            pv "{cps=30}Ay, no... por favor, bebé..."
+
+            pv "{cps=30}Sé que estás incómodo, pero mamá necesita terminar esto."
+
+            b "{cps=30}¡Waaa!"
+
+            pv "{cps=30}Shhh... tranquilo, tranquilo..."
+
+            pv "{cps=30}No puedo concentrarme si sigue llorando..."
+
+            scene bg examen_valeriab estres
+
+            pv "{cps=30}Y todavía me faltan varias preguntas..."
+
+            pv "{cps=30}¿Qué debería hacer...?"
+
+            $ estres += 1
 
     #
-    # MINIJUEGO DEL EXAMEN - PENDIENTE DE IMPLEMENTAR
+    # MINIJUEGO DEL EXAMEN 
     #
-    # Si resClase es 1 o 3, basta con la nota aprobatoria.
-    # Si resClase es 2 o 4, necesita una nota mas alta.
-    # El resultado se guardara en aproboMateria (True / False).
-    #
+
+    call jugar_minijuego_examen
 
     if aproboMateria == True:
+
+        if apoyoVeronicaExamen == True:
+
+            scene bg examen_valeria feliz
+        
+        else:
+
+            scene bg examen_valeriab feliz
 
         v "{cps=30}Listo..."
 
@@ -4536,11 +5250,27 @@ label nivel_5:
 
     else:
 
+        if apoyoVeronicaExamen == True:
+
+            scene bg examen_valeria estres
+        
+        else:
+
+            scene bg examen_valeriab estres
+
         v "{cps=30}No puede ser..."
 
         v "{cps=30}No alcancé a responder todo..."
 
         v "{cps=30}Y hubo varias preguntas que no supe cómo resolver..."
+
+        if apoyoVeronicaExamen == True:
+
+            scene bg examen_valeria preocupada
+        
+        else:
+
+            scene bg examen_valeriab preocupada
 
         pv "{cps=30}Tal vez todavía consiga algunos puntos..."
 
@@ -4550,29 +5280,101 @@ label nivel_5:
     # ESCENA 4 - ESPERANDO LOS RESULTADOS
     #
 
+    scene bg salon_clase with fade
+
+    if apoyoVeronicaExamen == True:
+
+        show valeria normal at flip:
+            xpos 1000
+            yalign -0.3
+    
+    else:
+
+        show valeria_bebe normal at flip:
+            xpos 1000
+            yalign -0.3
+
+    show herneztino normal at move(-400, -0.3, 1.5, 0)
+
     c "{cps=30}¡Valeria!"
 
     v "{cps=30}Ah... Herneztino."
 
     c "{cps=30}¿Cómo te fue?"
 
+    if apoyoVeronicaExamen == True:
+
+        show valeria preocupada at flip:
+            xpos 1000
+            yalign -0.3
+    
+    else:
+
+        show valeria_bebe tarde at flip:
+            xpos 1000
+            yalign -0.3
+
     v "{cps=30}No estoy muy segura..."
+
+    show herneztino amable:
+        xpos 0
+        yalign -0.3
 
     c "{cps=30}Jaja, yo tampoco."
 
+    show herneztino normal:
+        xpos 0
+        yalign -0.3
+
     c "{cps=30}Hubo unas preguntas bastante complicadas."
 
+    if apoyoVeronicaExamen == True:
+
+        show valeria normal at flip:
+            xpos 1000
+            yalign -0.3
+    
+    else:
+
+        show valeria_bebe normal at flip:
+            xpos 1000
+            yalign -0.3
+
     v "{cps=30}Sí... especialmente las del final."
+
+    show herneztino amable:
+        xpos 0
+        yalign -0.3
 
     c "{cps=30}¡Exacto! Pensé que era el único."
 
     v "{cps=30}Jaja..."
 
+    show herneztino normal:
+        xpos 0
+        yalign -0.3
+
     c "{cps=30}Bueno, supongo que solo nos queda esperar."
+
+    if apoyoVeronicaExamen == True:
+
+        show valeria preocupada at flip:
+            xpos 1000
+            yalign -0.3
+    
+    else:
+
+        show valeria_bebe tarde at flip:
+            xpos 1000
+            yalign -0.3
 
     v "{cps=30}Sí..."
 
     c "{cps=30}Oye, independientemente de cómo salga todo..."
+
+    show herneztino amable:
+        xpos 0
+        yalign -0.3
 
     c "{cps=30}Me alegró mucho haber podido conocerte este periodo."
 
@@ -4580,25 +5382,86 @@ label nivel_5:
 
     c "{cps=30}Jaja, ¿por qué esa cara?"
 
+    if apoyoVeronicaExamen == True:
+
+        show valeria normal at flip:
+            xpos 1000
+            yalign -0.3
+    
+    else:
+
+        show valeria_bebe normal at flip:
+            xpos 1000
+            yalign -0.3
+
     v "{cps=30}No, es solo que... no esperaba que dijeras eso."
+
+    show herneztino normal:
+        xpos 0
+        yalign -0.3
 
     c "{cps=30}Bueno, es la verdad."
 
+    if apoyoVeronicaExamen == True:
+
+        show valeria feliz2 at flip:
+            xpos 1000
+            yalign -0.3
+    
+    else:
+
+        show valeria_bebe feliz at flip:
+            xpos 1000
+            yalign -0.3
+
     v "{cps=30}Je... gracias, Herneztino."
+
+    if apoyoVeronicaExamen == True:
+
+        show valeria normal at flip:
+            xpos 1000
+            yalign -0.3
+    
+    else:
+
+        show valeria_bebe normal at flip:
+            xpos 1000
+            yalign -0.3
 
     v "{cps=30}Yo también me alegro de haberte conocido."
 
+    scene bg salon_clase with fade
+
     "{cps=30}Unos días después, el maestro anuncia la publicación de los resultados."
+
+    show maestro normal:
+        xpos 900
+        yalign -0.3
+    with dissolve
 
     ms "{cps=30}Buenos días."
 
     ms "{cps=30}Ya se encuentran disponibles las calificaciones finales."
 
+    show maestro explicando:
+        xpos 900
+        yalign -0.3
+
     ms "{cps=30}Les recuerdo que la calificación definitiva considera tanto las actividades entregadas como el examen."
 
     ms "{cps=30}Si alguien tiene dudas sobre cómo se calculó su resultado, puede acercarse para revisarlo."
 
+    show maestro normal:
+        xpos 900
+        yalign -0.3
+
     pv "{cps=30}Ya están..."
+
+    scene bg salon with fade
+
+    show valeria_bebe normal at flip:
+        xpos 500
+        yalign -0.3
 
     pv "{cps=30}Después de todo este tiempo..."
 
@@ -4607,6 +5470,8 @@ label nivel_5:
     v "{cps=30}Muy bien..."
 
     v "{cps=30}Voy a revisar..."
+
+    show valeria_bebe normal at flip, move(500, -0.3, 2.0, -860)
 
     #
     # SELECCION DE FINAL
@@ -4627,15 +5492,23 @@ label nivel_5:
 
 label final_seguir_adelante:
 
-    v "{cps=30}A ver..."
+    scene bg fondo_universidad calificaciones with fade
 
-    v "{cps=30}Mi calificación es..."
+    show valeria_bebe tarde at flip, move(500, -0.3, 2.0, 100) with dissolve
+
+    v "{cps=30}A ver.. Mi calificación es..."
 
     v "{cps=30}..."
 
+    show valeria_bebe exito:
+        xpos 100
+        yalign -0.3
+
     v "{cps=30}¡Aprobé!"
 
-    v "{cps=30}¡De verdad aprobé!"
+    show valeria_bebe feliz:
+        xpos 100
+        yalign -0.3
 
     v "{cps=30}No puedo creerlo..."
 
@@ -4649,17 +5522,37 @@ label final_seguir_adelante:
 
     pv "{cps=30}Al final pude conseguirlo..."
 
-    "{cps=30}Verónica se acerca a ella."
+    show veronica normal at move(1600, -0.3, 2.0, 900)
 
     a "{cps=30}¿Y bien? ¿Qué pasó?"
 
+    show valeria_bebe tarde:
+        xpos 100
+        yalign -0.3
+
     v "{cps=30}Verónica..."
+
+    show veronica preocupada:
+        xpos 900
+        yalign -0.3
 
     a "{cps=30}¿Qué? No me asustes."
 
+    show valeria_bebe normal:
+        xpos 100
+        yalign -0.3
+
     v "{cps=30}Aprobé..."
 
+    show veronica normal:
+        xpos 900
+        yalign -0.3
+
     a "{cps=30}¿En serio?"
+
+    show valeria_bebe feliz:
+        xpos 100
+        yalign -0.3
 
     v "{cps=30}¡Sí! ¡Aprobé!"
 
@@ -4669,7 +5562,15 @@ label final_seguir_adelante:
 
     a "{cps=30}¿Ves? Tanto que te preocupabas."
 
+    show valeria_bebe normal:
+        xpos 100
+        yalign -0.3
+
     v "{cps=30}Jeje, sí..."
+
+    show veronica molesta:
+        xpos 900
+        yalign -0.3
 
     a "{cps=30}Oye, ¿estás bien?"
 
@@ -4677,21 +5578,45 @@ label final_seguir_adelante:
 
     v "{cps=30}Ahora que todo terminó, siento que no tengo fuerzas para nada."
 
+    show veronica triste:
+        xpos 900
+        yalign -0.3
+
     a "{cps=30}No me sorprende."
 
     a "{cps=30}Llevas semanas sin descansar como deberías."
+
+    show valeria_bebe triste:
+        xpos 100
+        yalign -0.3
 
     v "{cps=30}Sí..."
 
     v "{cps=30}Creo que tienes razón."
 
+    show veronica normal:
+        xpos 900
+        yalign -0.3
+
     a "{cps=30}Bueno, ahora puedes tomarte un descanso, ¿no?"
+
+    show valeria_bebe normal:
+        xpos 100
+        yalign -0.3
 
     v "{cps=30}Sí..."
 
     v "{cps=30}Aunque todavía tengo muchas cosas pendientes."
 
+    show veronica molesta2:
+        xpos 900
+        yalign -0.3
+
     a "{cps=30}¡Valeria!"
+
+    show valeria_bebe feliz:
+        xpos 100
+        yalign -0.3
 
     v "{cps=30}¡Jaja, está bien!"
 
@@ -4701,27 +5626,49 @@ label final_seguir_adelante:
 
     pv "{cps=30}A pesar de todas las dificultades, todavía podía seguir estudiando."
 
-    pv "{cps=30}Pero..."
-
     pv "{cps=30}¿Cuántas veces había terminado completamente agotada?"
 
     pv "{cps=30}¿Cuántas cosas había dejado de lado?"
 
     pv "{cps=30}No podía seguir haciendo lo mismo indefinidamente."
 
+    show valeria_bebe normal:
+        xpos 100
+        yalign -0.3
+
     v "{cps=30}Verónica..."
+
+    show veronica normal:
+        xpos 900
+        yalign -0.3
 
     a "{cps=30}¿Sí?"
 
     v "{cps=30}Creo que... necesitaré cambiar algunas cosas."
 
+    show veronica preocupada:
+        xpos 900
+        yalign -0.3
+
     a "{cps=30}¿Cómo cuáles?"
 
     v "{cps=30}No lo sé todavía."
 
+    show valeria_bebe feliz:
+        xpos 100
+        yalign -0.3
+
     v "{cps=30}Pero no quiero seguir viviendo con miedo de no poder hacerlo todo."
 
+    show veronica normal:
+        xpos 900
+        yalign -0.3
+
     a "{cps=30}Bueno, eso ya es un comienzo."
+
+    show valeria_bebe normal:
+        xpos 100
+        yalign -0.3
 
     v "{cps=30}Jeje... supongo que sí."
 
@@ -4733,11 +5680,18 @@ label final_seguir_adelante:
 
     pv "{cps=30}Y esta vez quería aprender a seguir adelante sin dejarme a mí misma atrás."
 
+    show valeria_bebe feliz:
+        xpos 100
+        yalign -0.3
+
     v "{cps=30}Vamos, bebé."
 
     v "{cps=30}Todavía tenemos muchos sueños por cumplir."
 
-    # FINAL 1: SEGUIR ADELANTE
+    scene black with fade
+
+    call screen pantalla_final("Seguir Adelante")
+    
     return
 
 #
@@ -4746,35 +5700,67 @@ label final_seguir_adelante:
   
 label final_necesito_tiempo:
 
+    scene bg fondo_universidad calificaciones with fade
+
+    show valeria_bebe tarde at flip, move(500, -0.3, 2.0, 100) with dissolve
+
     v "{cps=30}Bien..."
 
     v "{cps=30}Mi calificación es..."
 
     v "{cps=30}..."
 
-    v "{cps=30}¿Qué...?"
+    show valeria_bebe triste at flip:
+        xpos 100
+        yalign -0.3
 
-    v "{cps=30}No..."
+    v "{cps=30}¿Qué...?"
 
     v "{cps=30}No puede ser..."
 
-    pv "{cps=30}Reprobé..."
-
-    pv "{cps=30}Otra vez..."
+    pv "{cps=30}Reprobé.. Otra vez..."
+    
+    show valeria_bebe tarde:
+        xpos 100
+        yalign -0.3
 
     v "{cps=30}Pero... yo..."
 
     v "{cps=30}Estudié tanto..."
 
+    show valeria_bebe triste:
+        xpos 100
+        yalign -0.3
+
     v "{cps=30}¿Por qué...?"
 
-    "{cps=30}Valeria busca al maestro para confirmar el resultado."
+    show valeria_bebe tarde:
+        xpos 100
+        yalign -0.3
+
+    v "{cps=30}No.. tengo que buscar al maestro."
+
+    scene bg salon_clase with fade
+
+    show maestro normal at flip:
+        xpos 1000
+        yalign -0.2
+
+    show valeria_bebe tarde at move(-200, -0.3, 1.5, 200) with dissolve
 
     v "{cps=30}Maestro..."
+
+    show maestro normal:
+        xpos 1000
+        yalign -0.2
 
     ms "{cps=30}Valeria, buenos días."
 
     ms "{cps=30}¿Sucede algo?"
+
+    show valeria_bebe triste:
+        xpos 200
+        yalign -0.3
 
     v "{cps=30}Quería preguntarle sobre mi calificación..."
 
@@ -4782,21 +5768,43 @@ label final_necesito_tiempo:
 
     v "{cps=30}Es que... no alcancé a aprobar."
 
+    show valeria_bebe tarde:
+        xpos 200
+        yalign -0.3
+
     v "{cps=30}¿Está seguro de que no hubo algún error?"
+
+    show maestro explicando:
+        xpos 1000
+        yalign -0.2
 
     ms "{cps=30}Podemos revisar tu evaluación si gustas."
 
     v "{cps=30}Sí... por favor."
 
-    "{cps=30}Después de revisar el examen..."
+    show maestro notas:
+        xpos 1000
+        yalign -0.2
 
     ms "{cps=30}Lo siento, Valeria."
+
+    show maestro explicando:
+        xpos 1000
+        yalign -0.2
 
     ms "{cps=30}Los puntos están correctamente contabilizados."
 
     v "{cps=30}Entonces..."
 
+    show valeria_bebe triste:
+        xpos 200
+        yalign -0.3
+
     v "{cps=30}¿No hay nada que pueda hacer?"
+
+    show maestro normal:
+        xpos 1000
+        yalign -0.2
 
     ms "{cps=30}Me temo que ya agotaste tus oportunidades de recuperación."
 
@@ -4806,15 +5814,36 @@ label final_necesito_tiempo:
 
     ms "{cps=30}Sé que esto no era lo que esperabas."
 
+    show maestro explicando:
+        xpos 1000
+        yalign -0.2
+
     ms "{cps=30}Pero te recomiendo acercarte al departamento académico para conocer cuáles son tus opciones a partir de ahora."
+
+    show valeria_bebe tarde:
+        xpos 200
+        yalign -0.3
 
     v "{cps=30}Entiendo..."
 
     v "{cps=30}Gracias, maestro..."
 
+    show maestro normal:
+        xpos 1000
+        yalign -0.2
+
     ms "{cps=30}Lamento no poder darte una mejor respuesta."
 
-    "{cps=30}Más tarde, Valeria se encuentra con Verónica."
+    show valeria_bebe tarde at flip, move(200, -0.3, 1.5, -860)
+
+    scene bg fondo_universidad with dissolve
+
+    show valeria_bebe tarde:
+        xpos 200
+        yalign -0.3
+    with dissolve
+
+    show veronica normal at move(1600, -0.3, 1.5, 1000)
 
     a "{cps=30}¡Valeria!"
 
@@ -4822,11 +5851,27 @@ label final_necesito_tiempo:
 
     v "{cps=30}..."
 
+    show veronica preocupada:
+        xpos 1000
+        yalign -0.3
+
     a "{cps=30}¿Valeria?"
+
+    show valeria_bebe triste:
+        xpos 200
+        yalign -0.3
 
     v "{cps=30}No aprobé..."
 
+    show veronica triste:
+        xpos 1000
+        yalign -0.3
+
     a "{cps=30}Oh..."
+
+    show valeria_bebe tarde:
+        xpos 200
+        yalign -0.3
 
     v "{cps=30}Lo intenté, Verónica."
 
@@ -4836,17 +5881,27 @@ label final_necesito_tiempo:
 
     v "{cps=30}Pero no fue suficiente..."
 
+    show valeria_bebe triste:
+        xpos 200
+        yalign -0.3
+
     v "{cps=30}Ya no puedo recuperar esa materia."
 
     v "{cps=30}No sé qué voy a hacer..."
 
     a "{cps=30}..."
 
-    a "{cps=30}Ven, siéntate conmigo."
-
     v "{cps=30}Perdón..."
 
+    show veronica molesta:
+        xpos 1000
+        yalign -0.3
+
     a "{cps=30}¿Por qué te disculpas?"
+
+    show valeria_bebe tarde:
+        xpos 200
+        yalign -0.3
 
     v "{cps=30}Después de todo lo que has hecho por mí..."
 
@@ -4854,23 +5909,55 @@ label final_necesito_tiempo:
 
     a "{cps=30}Valeria..."
 
+    show veronica molesta2:
+        xpos 1000
+        yalign -0.3
+
     a "{cps=30}No tienes que demostrarme nada."
 
+    show valeria_bebe triste:
+        xpos 200
+        yalign -0.3
+
     v "{cps=30}Pero..."
+
+    show veronica molesta:
+        xpos 1000
+        yalign -0.3
 
     a "{cps=30}Escúchame."
 
     a "{cps=30}Sé cuánto te esforzaste."
 
+    show veronica molesta2:
+        xpos 1000
+        yalign -0.3
+
     a "{cps=30}Y sé que esto te duele muchísimo."
+
+    show veronica triste:
+        xpos 1000
+        yalign -0.3
 
     a "{cps=30}No voy a decirte que no importa, porque sé que para ti sí importa."
 
     v "{cps=30}..."
 
+    show veronica molesta:
+        xpos 1000
+        yalign -0.3
+
     a "{cps=30}Pero tampoco voy a dejar que pienses que todo lo que hiciste no sirvió para nada."
 
+    show valeria_bebe tarde:
+        xpos 200
+        yalign -0.3
+
     v "{cps=30}¿Y qué se supone que haga ahora?"
+
+    show veronica preocupada:
+        xpos 1000
+        yalign -0.3
 
     a "{cps=30}No lo sé."
 
@@ -4878,21 +5965,45 @@ label final_necesito_tiempo:
 
     a "{cps=30}Quizá puedas continuar tus estudios de otra manera, o quizá necesites reorganizar tus planes."
 
+    show veronica molesta:
+        xpos 1000
+        yalign -0.3
+
     a "{cps=30}Pero no tienes que resolverlo hoy."
+
+    show valeria_bebe triste:
+        xpos 200
+        yalign -0.3
 
     v "{cps=30}..."
 
     v "{cps=30}Tengo tanto miedo..."
 
+    show veronica triste:
+        xpos 1000
+        yalign -0.3
+
     a "{cps=30}Lo sé."
+
+    show valeria_bebe tarde:
+        xpos 200
+        yalign -0.3
 
     v "{cps=30}¿Y si nunca logro terminar mi carrera?"
 
     a "{cps=30}No puedo prometerte que todo saldrá exactamente como quieres."
 
+    show veronica molesta:
+        xpos 1000
+        yalign -0.3
+
     a "{cps=30}Pero todavía tienes cosas que puedes intentar."
 
     v "{cps=30}..."
+
+    show valeria_bebe triste:
+        xpos 200
+        yalign -0.3
 
     v "{cps=30}Supongo que tienes razón..."
 
@@ -4912,27 +6023,48 @@ label final_necesito_tiempo:
 
     pv "{cps=30}Todavía tenía un futuro por delante."
 
+    show valeria_bebe triste:
+        xpos 200
+        yalign -0.3
+
     v "{cps=30}Creo que..."
 
     v "{cps=30}Necesito algo de tiempo."
 
+    show veronica normal:
+        xpos 1000
+        yalign -0.3
+
     a "{cps=30}Entonces tómalo."
+
+    show valeria_bebe triste:
+        xpos 200
+        yalign -0.3
 
     v "{cps=30}Gracias, Verónica..."
 
-    a "{cps=30}De nada."
+    a "{cps=30}No hay nada que agradecer Valeria."
 
     pv "{cps=30}Mi camino había cambiado una vez más."
+
+    show valeria_bebe tarde:
+        xpos 200
+        yalign -0.3
 
     pv "{cps=30}No sabía si algún día podría retomar mis estudios de la manera en que siempre había imaginado."
 
     pv "{cps=30}Pero ahora entendía que necesitar tiempo para encontrar otro camino no significaba que mi vida se hubiera terminado."
 
+    show valeria_bebe triste:
+        xpos 200
+        yalign -0.3
+
     v "{cps=30}Vamos, bebé..."
 
     v "{cps=30}Tenemos muchas cosas que pensar."
 
-    # FINAL 2: NECESITO TIEMPO
+    call screen pantalla_final("Necesito Tiempo")
+    
     return
 
 #
@@ -4941,19 +6073,33 @@ label final_necesito_tiempo:
 
 label final_no_estoy_sola:
 
-    v "{cps=30}Muy bien..."
+    scene bg fondo_universidad calificaciones with fade
 
-    v "{cps=30}Vamos a ver..."
+    show valeria_bebe tarde at flip, move(500, -0.3, 2.0, 100) with dissolve
+
+    v "{cps=30}Muy bien.."
+
+    v "{cps=30}Vamos a ver.."
 
     v "{cps=30}..."
 
-    v "{cps=30}¿Eh...?"
+    show valeria_bebe exito at flip:
+        xpos 100
+        yalign -0.3
 
     v "{cps=30}¡Aprobé!"
+
+    show valeria_bebe feliz:
+        xpos 100
+        yalign -0.3
 
     v "{cps=30}¡Lo conseguí!"
 
     v "{cps=30}¡De verdad lo conseguí!"
+
+    show valeria_bebe normal:
+        xpos 100
+        yalign -0.3
 
     pv "{cps=30}No puedo creerlo..."
 
@@ -4961,21 +6107,41 @@ label final_no_estoy_sola:
 
     pv "{cps=30}Finalmente lo conseguí..."
 
-    "{cps=30}Verónica aparece."
+    show veronica normal at move(1600, -0.3, 2.0, 1000) with dissolve
 
     a "{cps=30}¡Valeria! ¿Qué tal te fue?"
 
     v "{cps=30}¡Verónica!"
 
+    show veronica preocupada:
+        xpos 1000
+        yalign -0.3
+
     a "{cps=30}¿Qué? ¿Por qué estás tan emocionada?"
 
+    show valeria_bebe feliz:
+        xpos 100
+        yalign -0.3
+
     v "{cps=30}¡Aprobé!"
+
+    show veronica preocupada:
+        xpos 1000
+        yalign -0.3
 
     a "{cps=30}¡¿En serio?!"
 
     v "{cps=30}¡Sí!"
 
+    show veronica feliz:
+        xpos 1000
+        yalign -0.3
+
     a "{cps=30}¡Jajaja, sabía que podías lograrlo!"
+
+    show valeria_bebe normal:
+        xpos 100
+        yalign -0.3
 
     v "{cps=30}Jeje... gracias."
 
@@ -4983,7 +6149,15 @@ label final_no_estoy_sola:
 
     v "{cps=30}Jaja, ¿celebrarlo?"
 
+    show veronica normal:
+        xpos 1000
+        yalign -0.3
+
     a "{cps=30}¡Por supuesto! No todos los días se supera algo así."
+
+    show valeria_bebe feliz:
+        xpos 100
+        yalign -0.3
 
     v "{cps=30}Tienes razón..."
 
@@ -4991,7 +6165,15 @@ label final_no_estoy_sola:
 
     a "{cps=30}¿Mmm?"
 
+    show valeria_bebe normal:
+        xpos 100
+        yalign -0.3
+
     v "{cps=30}No creo que hubiera podido hacerlo sin ustedes."
+
+    show veronica preocupada:
+        xpos 1000
+        yalign -0.3
 
     a "{cps=30}¿Ustedes?"
 
@@ -4999,13 +6181,33 @@ label final_no_estoy_sola:
 
     v "{cps=30}Tú, Herneztino..."
 
+    show valeria_bebe feliz:
+        xpos 100
+        yalign -0.3
+
     v "{cps=30}Y todas las personas que me ayudaron cuando lo necesitaba."
+
+    show valeria_bebe tarde:
+        xpos 100
+        yalign -0.3
 
     v "{cps=30}Durante mucho tiempo pensé que tenía que hacerlo todo por mi cuenta."
 
+    show valeria_bebe triste:
+        xpos 100
+        yalign -0.3
+
     v "{cps=30}Que si necesitaba ayuda era porque no estaba esforzándome lo suficiente."
 
+    show veronica molesta:
+        xpos 1000
+        yalign -0.3
+
     a "{cps=30}Valeria..."
+
+    show valeria_bebe normal:
+        xpos 100
+        yalign -0.3
 
     v "{cps=30}Pero estaba equivocada."
 
@@ -5013,55 +6215,35 @@ label final_no_estoy_sola:
 
     v "{cps=30}Y tampoco tenía que hacerlo."
 
+    show veronica normal:
+        xpos 1000
+        yalign -0.3
+
     a "{cps=30}Bueno, me alegra que por fin te hayas dado cuenta."
+
+    show valeria_bebe feliz:
+        xpos 100
+        yalign -0.3
 
     v "{cps=30}Jeje, sí..."
 
+    show veronica molesta:
+        xpos 1000
+        yalign -0.3
+
     a "{cps=30}Aunque te tardaste bastante."
+
+    show valeria_bebe normal:
+        xpos 100
+        yalign -0.3
 
     v "{cps=30}¡Verónica!"
 
+    show veronica normal:
+        xpos 1000
+        yalign -0.3
+
     a "{cps=30}Jajaja."
-
-    "{cps=30}Herneztino se acerca."
-
-    c "{cps=30}¡Oigan! ¡Valeria!"
-
-    v "{cps=30}Ah, Herneztino."
-
-    c "{cps=30}¿Ya revisaste tus resultados?"
-
-    v "{cps=30}¡Sí! ¡Aprobé!"
-
-    c "{cps=30}¡¿En serio?! ¡Felicidades!"
-
-    v "{cps=30}¡Gracias!"
-
-    c "{cps=30}¡Sabía que lo lograrías!"
-
-    v "{cps=30}Jeje..."
-
-    v "{cps=30}Oye, Herneztino..."
-
-    c "{cps=30}¿Sí?"
-
-    v "{cps=30}Muchas gracias por todo lo que hiciste por mí."
-
-    c "{cps=30}¿Eh? ¿Por qué?"
-
-    v "{cps=30}Por ayudarme a estudiar... y por todas las veces que me ofreciste ayuda."
-
-    v "{cps=30}De verdad significó mucho para mí."
-
-    c "{cps=30}Ah..."
-
-    c "{cps=30}Bueno, no fue nada."
-
-    c "{cps=30}Además, tú también me ayudaste a entender varios temas."
-
-    c "{cps=30}Así que supongo que estamos a mano."
-
-    v "{cps=30}Jeje, puede ser."
 
     a "{cps=30}Bueno, bueno. ¿Y ahora qué?"
 
@@ -5071,17 +6253,31 @@ label final_no_estoy_sola:
 
     v "{cps=30}Mmm..."
 
+    show valeria_bebe sonrie:
+        xpos 100
+        yalign -0.3
+
     v "{cps=30}La verdad... todavía no estoy segura."
 
     v "{cps=30}Quiero continuar mis estudios."
+
+    show valeria_bebe normal:
+        xpos 100
+        yalign -0.3
 
     v "{cps=30}Pero también quiero tener más tiempo para mi bebé."
 
     v "{cps=30}Y quizá... también para mí."
 
+    show veronica feliz:
+        xpos 1000
+        yalign -0.3
+
     a "{cps=30}Eso suena bastante bien."
 
-    c "{cps=30}Sí, creo que te lo has ganado."
+    show valeria_bebe feliz:
+        xpos 100
+        yalign -0.3
 
     v "{cps=30}Jeje, gracias."
 
@@ -5097,17 +6293,35 @@ label final_no_estoy_sola:
 
     pv "{cps=30}No tenía que superar todos mis problemas yo sola."
 
-    v "{cps=30}Bueno, ¿qué les parece si vamos a comer algo?"
+    show valeria_bebe normal:
+        xpos 100
+        yalign -0.3
+
+    v "{cps=30}Bueno, ¿qué te parece si vamos a comer algo?"
+
+    show veronica normal:
+        xpos 1000
+        yalign -0.3
 
     a "{cps=30}¡Eso sí que es una buena idea!"
 
-    c "{cps=30}Jaja, yo también tengo hambre."
+    show valeria_bebe feliz:
+        xpos 100
+        yalign -0.3
 
     v "{cps=30}Jeje, entonces vamos."
+
+    show valeria_bebe normal:
+        xpos 100
+        yalign -0.3
 
     v "{cps=30}¿Qué dices, bebé? ¿Listo para irnos?"
 
     b "{cps=30}Ah... mm."
+
+    show valeria_bebe feliz:
+        xpos 100
+        yalign -0.3
 
     v "{cps=30}Jajaja."
 
@@ -5117,11 +6331,16 @@ label final_no_estoy_sola:
 
     pv "{cps=30}Pero ahora..."
 
+    show valeria_bebe normal:
+        xpos 100
+        yalign -0.3
+
     pv "{cps=30}Ahora sé que puedo construir un futuro para nosotros."
 
     pv "{cps=30}Un paso a la vez..."
 
     pv "{cps=30}Y sin olvidar a quienes están a mi lado."
 
-    # FINAL 3: NO ESTOY SOLA
+    call screen pantalla_final("No Estoy Sola")
+    
     return
